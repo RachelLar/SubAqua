@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 	$trimmed = array_map('trim', $_POST);
 
 	// This will assume invalid values
-	$fn = $ln = $e = $p = FALSE;
+	//$fn && $ln && $e && $p && $adn && $ad1 && $ad2 && $tc && $cou && $pc && $mob && $unon && $unam && $ucor && $ucam && $udur && $uyer && $dob && $jage && $kfn && $kln && $kem && $krel && $kpcon && $kbcon && $kadn && $kad1 && $kad2 && $ktc && $kcou && $kpc && $dgrad && $ingrad && $dmxdp && $dnit && $ddry && $dfa && $dexp && $dach && $dish && $al1 && $al2 && $agdat && $agter = FALSE;
 	
 	// This will check for a first name
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['first_name'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['first_name'])) 
             {
 		$fn = mysqli_real_escape_string ($dbc, $trimmed['first_name']);
             } 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             }
 
 	// This will check for a last name
-	if (preg_match ('/^[A-Z \'.-]{2,40}$/i', $trimmed['last_name'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['last_name'])) 
             {
 		$ln = mysqli_real_escape_string ($dbc, $trimmed['last_name']);
             } 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             {
 		if ($trimmed['password1'] == $trimmed['password2']) 
                     {
-			$p = mysqli_real_escape_string ($dbc, $trimmed['password1']);
+			$p = mysqli_real_escape_string ($dbc, SHA1($trimmed['password1']));
                     } 
                 else
                     {
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
   //------------------------------------------
         // This will check for an address number
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['address_number'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['address_number'])) 
             {
 		$adn = mysqli_real_escape_string ($dbc, $trimmed['address_number']);
             } 
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             }
             
         // This will check for an address1 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['address1'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['address1'])) 
             {
 		$ad1 = mysqli_real_escape_string ($dbc, $trimmed['address1']);
             } 
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
             
         // This will check for an address2
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['address2'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['address2'])) 
             {
 		$ad2 = mysqli_real_escape_string ($dbc, $trimmed['address2']);
             } 
@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
  
             
         // This will check for a town / city 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['town_city'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['town_city'])) 
             {
 		$tc = mysqli_real_escape_string ($dbc, $trimmed['town_city']);
             } 
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
  
             
         // This will check for a county
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['county'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['county'])) 
             {
 		$cou = mysqli_real_escape_string ($dbc, $trimmed['county']);
             } 
@@ -123,9 +123,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
  
             
         // This will check for a postcode
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['postcode'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['post_code'])) 
             {
-		$pc = mysqli_real_escape_string ($dbc, $trimmed['postcode']);
+		$pc = mysqli_real_escape_string ($dbc, $trimmed['post_code']);
             } 
         else 
             {
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
             
         // This will check for a mobile number
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['mobile'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['mobile'])) 
             {
 		$mob = mysqli_real_escape_string ($dbc, $trimmed['mobile']);
             } 
@@ -145,18 +145,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
             
         // This will check for a Uni or Non-uni student answer
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['uni_or_nonuni'])) 
-            {
+	//if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['uni_or_nonuni'])) 
+        //    {
 		$unon = mysqli_real_escape_string ($dbc, $trimmed['uni_or_nonuni']);
-            } 
-        else 
-            {
-                echo '<p class="error">Please enter if you are a Uni student or not!</p>';
-            }
+        //    } 
+       // else 
+        //    {
+        //        echo '<p class="error">Please enter if you are a Uni student or not!</p>';
+        //    }
             
             
         // This will check for a Uni name
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['uni_name'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['uni_name'])) 
             {
 		$unam = mysqli_real_escape_string ($dbc, $trimmed['uni_name']);
             } 
@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                        
             
         // This will check for a Uni course name
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['uni_course'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['uni_course'])) 
             {
 		$ucor = mysqli_real_escape_string ($dbc, $trimmed['uni_course']);
             } 
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
                        
         // This will check for a Uni campus name
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['uni_campus'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['uni_campus'])) 
             {
 		$ucam = mysqli_real_escape_string ($dbc, $trimmed['uni_campus']);
             } 
@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
             
         // This will check for the Uni duration
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['uni_duration'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['uni_duration'])) 
             {
 		$udur = mysqli_real_escape_string ($dbc, $trimmed['uni_duration']);
             } 
@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                       
             
         // This will check for a Uni year
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['uni_year'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['uni_year'])) 
             {
 		$uyer = mysqli_real_escape_string ($dbc, $trimmed['uni_year']);
             } 
@@ -211,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                         
             
         // This will check for a date of birth
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dob'])) 
+	if (preg_match ('/([0-9]{2})\/([0-9]{2})\/([0-9]{4})/', $trimmed['dob'])) 
             {
 		$dob = mysqli_real_escape_string ($dbc, $trimmed['dob']);
             } 
@@ -222,41 +222,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                        
             
         // This will check for an age at join
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['join_age'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['years_at_join'])) 
             {
-		$jage = mysqli_real_escape_string ($dbc, $trimmed['join_age']);
+		$jage = mysqli_real_escape_string ($dbc, $trimmed['years_at_join']);
             } 
         else 
             {
                 echo '<p class="error">Please enter your age at join!</p>';
             }
             
-                       
-        // This will check for an agreement for holding data 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['agree_data'])) 
-            {
-		$agdat = mysqli_real_escape_string ($dbc, $trimmed['agree_data']);
-            } 
-        else 
-            {
-                echo '<p class="error">Please enter your agreement for holding data!</p>';
-            }
-            
-            
-        // This will check for an agreement to terms
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['agree_terms'])) 
-            {
-		$fn = mysqli_real_escape_string ($dbc, $trimmed['agree_terms']);
-            } 
-        else 
-            {
-                echo '<p class="error">Please enter your agreement to the terms!</p>';
-            }
-            
+           
 //----------------------------------------------------------            
             
         // This will check for a next of kin first name
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_first_name'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_first_name'])) 
             {
 		$kfn = mysqli_real_escape_string ($dbc, $trimmed['kin_first_name']);
             } 
@@ -267,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                        
             
         // This will check for a next of kin last name
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_last_name'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_last_name'])) 
             {
 		$kln = mysqli_real_escape_string ($dbc, $trimmed['kin_last_name']);
             } 
@@ -280,7 +259,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
         // This will check for a next of kin email 
 	if (filter_var($trimmed['kin_email'], FILTER_VALIDATE_EMAIL)) 
             {
-		$e = mysqli_real_escape_string ($dbc, $trimmed['kin_email']);
+		$kem = mysqli_real_escape_string ($dbc, $trimmed['kin_email']);
             } 
         else 
             {
@@ -289,7 +268,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
     
             
         // This will check for a next of kin relationship 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_relationship'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_relationship'])) 
             {
 		$krel = mysqli_real_escape_string ($dbc, $trimmed['kin_relationship']);
             } 
@@ -300,7 +279,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                                     
             
         // This will check for a next of kin primary contact 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_primary_contact'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_primary_contact'])) 
             {
 		$kpcon = mysqli_real_escape_string ($dbc, $trimmed['kin_primary_contact']);
             } 
@@ -311,7 +290,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                         
             
         // This will check for a next of kin backup contact
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_backup_contact'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_backup_contact'])) 
             {
 		$kbcon = mysqli_real_escape_string ($dbc, $trimmed['kin_backup_contact']);
             } 
@@ -322,7 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                         
             
         // This will check for a next of kin address number
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_address_number'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_address_number'])) 
             {
 		$kadn = mysqli_real_escape_string ($dbc, $trimmed['kin_address_number']);
             } 
@@ -333,7 +312,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
             
         // This will check for a next of kin address1
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_address1'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_address1'])) 
             {
 		$kad1 = mysqli_real_escape_string ($dbc, $trimmed['kin_address1']);
             } 
@@ -344,7 +323,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
             
         // This will check for a next of kin address2
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_address2'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_address2'])) 
             {
 		$kad2 = mysqli_real_escape_string ($dbc, $trimmed['kin_address2']);
             } 
@@ -355,7 +334,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                         
             
         // This will check for a next of kin town / city
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_town_city'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_town_city'])) 
             {
 		$ktc = mysqli_real_escape_string ($dbc, $trimmed['kin_town_city']);
             } 
@@ -366,7 +345,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
                         
         // This will check for a next of kin county 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_county'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_county'])) 
             {
 		$kcou = mysqli_real_escape_string ($dbc, $trimmed['kin_county']);
             } 
@@ -377,9 +356,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                         
             
         // This will check for a next of kin postcode 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['kin_postcode'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['kin_post_code'])) 
             {
-		$fn = mysqli_real_escape_string ($dbc, $trimmed['kin_postcode']);
+		$kpc = mysqli_real_escape_string ($dbc, $trimmed['kin_post_code']);
             } 
         else 
             {
@@ -389,7 +368,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 //---------------------------------------------------------------            
             
         // This will check for a diver grade 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['diver_grade'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['diver_grade'])) 
             {
 		$dgrad = mysqli_real_escape_string ($dbc, $trimmed['diver_grade']);
             } 
@@ -400,7 +379,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                                     
             
         // This will check for an instructor grade
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['instructor_grade'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['instructor_grade'])) 
             {
 		$ingrad = mysqli_real_escape_string ($dbc, $trimmed['instructor_grade']);
             } 
@@ -411,7 +390,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                         
             
         // This will check for a max dive depth 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_max_depth'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_max_depth'])) 
             {
 		$dmxdp = mysqli_real_escape_string ($dbc, $trimmed['dive_max_depth']);
             } 
@@ -422,7 +401,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                        
             
         // This will check for a nitrox entry
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_nitrox'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_nitrox'])) 
             {
 		$dnit = mysqli_real_escape_string ($dbc, $trimmed['dive_nitrox']);
             } 
@@ -433,7 +412,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             
             
         // This will check for a drysuit
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_drysuit'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_drysuit'])) 
             {
 		$ddry = mysqli_real_escape_string ($dbc, $trimmed['dive_drysuit']);
             } 
@@ -444,7 +423,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
             
         // This will check for first aid details
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_first_aid'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_first_aid'])) 
             {
 		$dfa = mysqli_real_escape_string ($dbc, $trimmed['dive_first_aid']);
             } 
@@ -454,7 +433,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             }    
 
          // This will check for dive experience
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_experience'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_experience'])) 
             {
 		$dexp = mysqli_real_escape_string ($dbc, $trimmed['dive_experience']);
             } 
@@ -465,7 +444,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
  
  
         // This will check for dive achievements
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_achieve'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_achieve'])) 
             {
 		$dach = mysqli_real_escape_string ($dbc, $trimmed['dive_achieve']);
             } 
@@ -476,7 +455,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
              
  
         // This will check for dive issues 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['dive_issues'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['dive_issues'])) 
             {
 		$dish = mysqli_real_escape_string ($dbc, $trimmed['dive_issues']);
             } 
@@ -488,9 +467,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 //---------------------------------------------------
             
          // This will check for an med_allergy1
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['med_allergy1'])) 
+	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['allergies'])) 
             {
-		$al1 = mysqli_real_escape_string ($dbc, $trimmed['med_allergy1']);
+		$al1 = mysqli_real_escape_string ($dbc, $trimmed['allergies']);
             } 
         else 
             {
@@ -499,19 +478,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
             
          // This will check for an allergy2 
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['med_allergy2'])) 
+	/*if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['med_allergy2'])) 
             {
 		$al2 = mysqli_real_escape_string ($dbc, $trimmed['med_allergy2']);
             } 
         else 
             {
                 echo '<p class="error">Please enter any other allergy details!</p>';
-            }    
+            } */   
             
+ //-------------------------------------------------
+            
+                         
+        // This will check for an agreement for holding data 
+	/*if (isset($_POST['agree_data']) && ($_POST['agree_data'] == 'true'))
+            {
+		$agdat = $dbc ($_POST['agree_data']);
+            } 
+        else 
+            {
+                echo '<p class="error">Please enter your agreement for holding data!</p>';
+            }
+            
+            
+        // This will check for an agreement to terms
+	if (isset($_POST['agreeterms']) && ($_POST['agreeterms'] == 'true'))
+            {
+		$agter = $dbc ($_POST['agreeterms']);
+            } 
+        else 
+            {
+                echo '<p class="error">Please enter your agreement to the terms!</p>';
+            }
+           */
+        // This will check for an agreement for holding data 
+	/*if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['agree_data'])) 
+            {
+		$agdat = mysqli_real_escape_string ($dbc, $trimmed['agree_data']);
+            } 
+        else 
+            {
+                echo '<p class="error">Please enter your agreement for holding data!</p>';
+            }
+    */        
+            
+        // This will check for an agreement to terms
+	/*if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['agreeterms'])) 
+            {
+		$agter = mysqli_real_escape_string ($dbc, $trimmed['agreeterms']);
+            } 
+        else 
+            {
+                echo '<p class="error">Please enter your agreement to the terms!</p>';
+            }            
+ */           
             
  //---------------------------------------------           
 	//if ($fn && $ln && $e && $p)
-	if ($fn && $ln && $e && $p && $adn && $ad1 && $ad2 && $tc && $cou && $pc && $mob && $unon && $unam && $ucor && $ucam && $udur && $uyer && $dob && $jage && $agdat && $agter && $kfn && $kln && $kem && $krel && $kpcon && $kbcon && $kadn && $kad1 && $kad2 && $ktc && $kcou && $kpc && $dgrad && $ingrad && $dmxdp && $dnit && $ddry && $dfa && $dexp && $dach && $dish && $al1 && $al2) 
+	if ($fn && $ln && $e && $p && $adn && $ad1 && $ad2 && $tc && $cou && $pc && $mob && $unon && $unam && $ucor && $ucam && $udur && $uyer && $dob && $jage && $kfn && $kln && $kem && $krel && $kpcon && $kbcon && $kadn && $kad1 && $kad2 && $ktc && $kcou && $kpc && $dgrad && $ingrad && $dmxdp && $dnit && $ddry && $dfa && $dexp && $dach && $dish && $al1) 
             { // Then, IF everything is set correctly
 
 		// This will make sure the email address is available
@@ -534,21 +558,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
 
                         // This will Prepare Query One - Inserting into users table (Site User Information)
-                        $query1 = $connect->prepare("INSERT INTO users (first_name, last_name, email, pass, active, registration_date) VALUES ( ?, ?, ?, ?, ?, ? )" );
-
+                        //$query1 = $dbc->prepare("INSERT INTO users (first_name, last_name, email, pass, active, registration_date) VALUES ( ?, ?, ?, ?, ?, ? )");
+                        $regdate = date('NOW()');
+                        $query1 = $dbc->prepare("INSERT INTO users (first_name, last_name, email, password, active, registration_date) VALUES ( ?, ?, ?, ?, ?, ? )");
                         // This will bind the variables to the statement
-                        $query1->bind_param('$fn', '$ln', '$e', SHA1('$p'), '$a', NOW() );
+                        $query1->bind_param('ssssss', $fn, $ln, $e, $p, $a, $regdate );
 
                         // This will execute the statement
                         $query1->execute( );
 
 
 
-                        // This will Prepare Query Two - Inserting into member_info table (General Member Information)
-                        $query2 = $connect->prepare("INSERT INTO member_info (address_number, address1, address2, town_city, county, postcode, mobile, uni_or_nonuni, uni_name, uni_course, uni_campus, uni_duration, uni_year, dob, join_age, agree_data, agree_terms, users_user_id) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID() )" );
+                        // This will Prepare Query Two - Inserting into member_info table (General Member Information)....agree_data, agree_terms, removed.
+                        $query2 = $dbc->prepare("INSERT INTO member_info (address_number, address1, address2, town_city, county, postcode, mobile, uni_or_nonuni, uni_name, uni_course, uni_campus, uni_duration, uni_year, dob, join_age, users_user_id) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, LAST_INSERT_ID() )" );
 
                         // This will bind the variables to the statement
-                        $query2->bind_param($adn, $ad1, $ad2, $tc, $cou, $pc, $mob, $unon, $unam, $ucor, $ucam, $udur, $uyer, $dob, $jage, $agdat, $agter);
+                        $query2->bind_param('ssssssssssssisi', $adn, $ad1, $ad2, $tc, $cou, $pc, $mob, $unon, $unam, $ucor, $ucam, $udur, $uyer, $dob, $jage);
 
                         // This will execute the statement
                         $query2->execute( ); 
@@ -556,7 +581,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
 
                         // This will store the last value of LAST_INSERT_ID() here
-                        $queryLID = $connect->prepare( "SELECT LAST_INSERT_ID()" );
+                        $queryLID = $dbc->prepare( "SELECT LAST_INSERT_ID()" );
 
                         $queryLID->execute();
 
@@ -573,10 +598,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
 
                         // This will Prepare Query Three - Inserting into member_nextofkin table (Next of Kin Information
-                        $query3 = $connect->prepare("INSERT INTO member_nextofkin (kin_first_name, kin_last_name, kin_email, kin_relationship, kin_primary_contact, kin_backup_contact, kin_address_number, kin_address1, kin_address2, kin_town_city, kin_county, kin_postcode, member_info_member_info_id ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
+                        $query3 = $dbc->prepare("INSERT INTO member_nextofkin (kin_first_name, kin_last_name, kin_email, kin_relationship, kin_primary_contact, kin_backup_contact, kin_address_number, kin_address1, kin_address2, kin_town_city, kin_county, kin_postcode, member_info_member_info_id ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
 
                         // This will bind the variables to the statement
-                        $query3->bind_param($kfn, $kln, $kem, $krel, $kpcon, $kbcon, $kadn, $kad1, $kad2, $ktc, $kcou, $kpc, $lastid );
+                        $query3->bind_param('ssssssssssssi', $kfn, $kln, $kem, $krel, $kpcon, $kbcon, $kadn, $kad1, $kad2, $ktc, $kcou, $kpc, $lastid );
 
                         // This will execute the statement
                         $query3->execute( ); 
@@ -584,10 +609,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
 
                         // This will Prepare Query Four - Inserting into member_dive_info table (Previous Diving Information)
-                        $query4 = $connect->prepare("INSERT INTO member_dive_info (diver_grade, instructor_grade, dive_max_depth, dive_nitrox, dive_drysuit, dive_first_aid, dive_experience, dive_achieve, dive_issues, member_info_member_info_id) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )" );
+                        $query4 = $dbc->prepare("INSERT INTO member_dive_info (diver_grade, instructor_grade, dive_max_depth, dive_nitrox, dive_drysuit, dive_first_aid, dive_experience, dive_achieve, dive_issues, member_info_member_info_id) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )" );
 
                         // This will bind the variables to the statement
-                        $query4->bind_param($dgrad , $ingrad, $dmxdp, $dnit, $ddry, $dfa, $dexp, $dach, $dish, $lastid );
+                        $query4->bind_param('sssssssssi', $dgrad , $ingrad, $dmxdp, $dnit, $ddry, $dfa, $dexp, $dach, $dish, $lastid );
 
                         // This will execute the statement
                         $query4->execute( ); 
@@ -595,10 +620,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 
 
                         // This will Prepare Query Five - Inserting into member_medical table (Medical Information)
-                        $query5 = $connect->prepare("INSERT INTO member_medical (med_allergy1, med_allergy2, member_info_member_info_id ) VALUES ( ?, ?, ? )" );
+                        $query5 = $dbc->prepare("INSERT INTO member_medical (med_allergy1, member_info_member_info_id ) VALUES ( ?, ? )" );
 
                         // This will bind the variables to the statement
-                        $query5->bind_param($al1, $al2, $lastid);
+                        $query5->bind_param('si', $al1, $lastid);
 
                         // This will execute the statement
                         $query5->execute( ); 
@@ -610,12 +635,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                             {
                                 // This will send the registration email
                                 $body = "Thank you for registering at <whatever site>. To activate your account, please click on this link:\n\n";
-                                $body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
+                                $body .= ('BASE_URL') . 'activate.php?x=' . urlencode($e) . "&y=$a";
                                 mail($trimmed['email'], 'Registration Confirmation', $body, 'From: admin@sucs.com');
 
                                 // This will finish the page
-                                echo '<h3>Thank you for registering! A confirmation email has been sent to your address. Please click on the link in that email in order to activate your account.</h3>';
-                                include ('includes/footer.html'); // Include the HTML footer.
+                                echo '<h3>Thank you for registering!</h3><p>A confirmation email has been sent to your address.</p><p> Please click on the link in that email in order to activate your account.</p>';
+                                //include ('includes/footer.html'); // Include the HTML footer.
                                 exit(); // Stop the page.
 
                             } 
@@ -642,4 +667,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 ?>
 
 
-<?php include ('includes/footer.html'); ?>
