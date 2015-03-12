@@ -135,33 +135,33 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">Ã—</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel">Login</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="well">
-                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                                <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
                                     <div class="form-group">
                                         <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter your Username" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Username or Password</div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember" id="remember"> Remember login
                                             </label>
-                                            <p class="help-block">(if this is a private computer)</p>
+                                            <p class="help-block">(If using a private computer)</p>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="/forgot/" class="btn btn-primary btn-block">Forgotten Password</a>
+                                        <a href="forgot_password.html" class="btn btn-primary btn-block">Forgotten Password</a>
                                 </form>
                             </div>
                         </div>
@@ -169,14 +169,14 @@
                             <div class="well"> 
                                 <p class="lead">Register <span class="text-primary">Now!</span></p>
                                     <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Lots of diving</li>
-                                        <li><span class="fa fa-check text-success"></span> More diving</li>
-                                        <li><span class="fa fa-check text-success"></span> Hang out with Darren</li>
-                                        <li><span class="fa fa-check text-success"></span> ...and others</li>
-                                        <li><span class="fa fa-check text-success"></span> Something<small>(in small print)</small></li>
+                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
+                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
+                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
+                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
+                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
                                     </ul>
-                                <p><a href="/read-more/" class="btn btn-primary btn-block">Read more</a></p>
-                                <p><a href="register" class="btn btn-primary btn-block">Yes please, register now!</a></p>
+                                <p><a href="members.html" class="btn btn-primary btn-block">Read more</a></p>
+                                <p><a href="register.php" class="btn btn-primary btn-block">Yes please, register now!</a></p>
                             </div>
                         </div>
                     </div>
@@ -696,7 +696,7 @@
                         <ul class="list-inline">
                             <li><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
                             <li class="divider"></li>
-                            <li><a href="index.html"><strong>&copy; Company 2014</strong></a></li>
+                            <li><a href="index.html"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="privacypolicy.html"><strong>Privacy Policy</strong></a></li>                
 
