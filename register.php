@@ -199,12 +199,12 @@
                     <p>All fields must be completed for registration.</p>
                     <p>Please Note: Your application will be processed. Once assessed, payment must be made offline prior to full activation of your account.</p>
                     <hr>
-                        <form class="form-group" role="form" action="register.php" method="post">
+                        <form class="form-group" role="form" action="registration.php" method="post">
                             <div class="col-lg-4">
                                 <h3>Member Information</h3>
                                 <div class="form-group form-group-sm">
                                     <label>First Name</label>    
-                                    <input type="text" name="first_name" placeholder="First Name" class="form-control input-sm  text-center" id="inputName" size="30" maxlength="20" value="<?php if (isset($trimmed['first_name'])) echo $trimmed['first_name']; ?>" />
+                                    <input type="text" name="first_name" placeholder="First Name" class="form-control input-sm  text-center" id="inputName" size="30" maxlength="30" value="<?php if (isset($trimmed['first_name'])) echo $trimmed['first_name']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Last Name</label>
@@ -216,15 +216,15 @@
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Password</label>
-                                    <input type="password" name="password1" placeholder="Password" class="form-control input-sm text-center" id="inputPassword3" size="30" maxlength="20" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" />
+                                    <input type="password" name="password1" placeholder="Password" class="form-control input-sm text-center" id="inputPassword3" size="30" maxlength="30" value="<?php if (isset($trimmed['password1'])) echo $trimmed['password1']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Verify Password</label>
-                                    <input type="password" name="password2" placeholder="Verify Password" class="form-control input-sm text-center" id="inputPassword3" size="30" maxlength="20" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>" />
+                                    <input type="password" name="password2" placeholder="Verify Password" class="form-control input-sm text-center" id="inputPassword3" size="30" maxlength="30" value="<?php if (isset($trimmed['password2'])) echo $trimmed['password2']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Date of Birth</label>
-                                    <input type="text" name="dob" placeholder="Date of Birth - DD/MM/Year" class="form-control input-sm  text-center" id="inputDob" size="30" maxlength="20" value="<?php if (isset($trimmed['dob'])) echo $trimmed['dob']; ?>" />
+                                    <input type="text" name="dob" placeholder="Date of Birth - DD/MM/Year" class="form-control input-sm  text-center" id="inputDob" size="30" maxlength="30" value="<?php if (isset($trimmed['dob'])) echo $trimmed['dob']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Years at Join</label>
@@ -236,7 +236,7 @@
                                 <h3>Term Address</h3>
                                 <div class="form-group form-group-sm">
                                     <label>Address Number</label>
-                                    <input type="text" name="address_number" placeholder="Address Number" class="form-control input-sm  text-center" id="inputName" size="30" maxlength="20" value="<?php if (isset($trimmed['address_number'])) echo $trimmed['address_number']; ?>" />
+                                    <input type="text" name="address_number" placeholder="Address Number" class="form-control input-sm  text-center" id="inputName" size="30" maxlength="30" value="<?php if (isset($trimmed['address_number'])) echo $trimmed['address_number']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Address 1</label>
@@ -248,19 +248,19 @@
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Town / City</label>
-                                    <input type="text" name="town" placeholder="Town / City" class="form-control input-sm text-center" id="inputTown1" size="30" maxlength="20" value="<?php if (isset($trimmed['town'])) echo $trimmed['town']; ?>" />
+                                    <input type="text" name="town_city" placeholder="Town / City" class="form-control input-sm text-center" id="inputTown1" size="30" maxlength="30" value="<?php if (isset($trimmed['town_city'])) echo $trimmed['town_city']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>County</label>
-                                    <input type="text" name="county" placeholder="County" class="form-control input-sm text-center" id="inputCounty" size="30" maxlength="20" value="<?php if (isset($trimmed['county'])) echo $trimmed['county']; ?>" />
+                                    <input type="text" name="county" placeholder="County" class="form-control input-sm text-center" id="inputCounty" size="30" maxlength="30" value="<?php if (isset($trimmed['county'])) echo $trimmed['county']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Post Code</label>
-                                    <input type="text" name="post_code" placeholder="Post Code" class="form-control input-sm  text-center" id="inputPcode" size="30" maxlength="10" value="<?php if (isset($trimmed['post_code'])) echo $trimmed['post_code']; ?>" />
+                                    <input type="text" name="post_code" placeholder="Post Code" class="form-control input-sm  text-center" id="inputPcode" size="30" maxlength="30" value="<?php if (isset($trimmed['post_code'])) echo $trimmed['post_code']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Mobile</label>
-                                    <input type="text" name="mobile" placeholder="Mobile" class="form-control input-sm text-center" id="inputMobile" size="30" maxlength="20" value="<?php if (isset($trimmed['mobile'])) echo $trimmed['mobile']; ?>" />
+                                    <input type="text" name="mobile" placeholder="Mobile" class="form-control input-sm text-center" id="inputMobile" size="30" maxlength="30" value="<?php if (isset($trimmed['mobile'])) echo $trimmed['mobile']; ?>" />
                                 </div><hr>                                
                             </div>
                             
@@ -272,30 +272,30 @@
                                     </div>-->
                                 <div class="form-group form-group-sm">
                                         <label>Are you a Uni Student?</label>
-                                        <select name="student_ornot" class="form-control input-sm  text-center" id="inputStudentornot">
+                                        <select name="uni_or_nonuni" class="form-control input-sm  text-center" id="inputStudentornot">
                                             <option>Yes, I am a Uni Student</option>
                                             <option>No, I am not a Uni Student</option>
                                         </select>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>State University</label>
-                                        <input type="text" name="state_uni" placeholder="State University" class="form-control input-sm text-center" id="inputStateuni" size="30" maxlength="40" value="<?php if (isset($trimmed['state_uni'])) echo $trimmed['state_uni']; ?>" />
+                                        <input type="text" name="uni_name" placeholder="State University" class="form-control input-sm text-center" id="inputStateuni" size="30" maxlength="40" value="<?php if (isset($trimmed['uni_name'])) echo $trimmed['uni_name']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Course</label>
-                                        <input type="text" name="course" placeholder="Course" class="form-control input-sm text-center" id="inputCourse" size="30" maxlength="20" value="<?php if (isset($trimmed['course'])) echo $trimmed['course']; ?>" />
+                                        <input type="text" name="uni_course" placeholder="Course" class="form-control input-sm text-center" id="inputCourse" size="30" maxlength="30" value="<?php if (isset($trimmed['uni_course'])) echo $trimmed['uni_course']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Campus</label>
-                                        <input type="text" name="campus" placeholder="Campus" class="form-control input-sm text-center" id="inputCampus" size="30" maxlength="30" value="<?php if (isset($trimmed['campus'])) echo $trimmed['campus']; ?>" />
+                                        <input type="text" name="uni_campus" placeholder="Campus" class="form-control input-sm text-center" id="inputCampus" size="30" maxlength="30" value="<?php if (isset($trimmed['uni_campus'])) echo $trimmed['uni_campus']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Duration</label>
-                                        <input type="text" name="duration" placeholder="Duration" class="form-control input-sm text-center" id="inputDuration" size="30" maxlength="20" value="<?php if (isset($trimmed['duration'])) echo $trimmed['duration']; ?>" />
+                                        <input type="text" name="uni_duration" placeholder="Duration" class="form-control input-sm text-center" id="inputDuration" size="30" maxlength="30" value="<?php if (isset($trimmed['uni_duration'])) echo $trimmed['uni_duration']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Current Year</label>
-                                        <input type="text" name="current_year" placeholder="Current Year" class="form-control input-sm  text-center" id="inputCurrentyear" size="30" maxlength="20" value="<?php if (isset($trimmed['current_year'])) echo $trimmed['current_year']; ?>" />
+                                        <input type="text" name="uni_year" placeholder="Current Year" class="form-control input-sm  text-center" id="inputCurrentyear" size="30" maxlength="30" value="<?php if (isset($trimmed['uni_year'])) echo $trimmed['uni_year']; ?>" />
                                     </div>
                                 <br /><br /><br/><hr>
                             </div>
@@ -304,7 +304,7 @@
                                 <h3>Next of Kin</h3>
                                 <div class="form-group form-group-sm">
                                     <label>First Name</label>    
-                                    <input type="text" name="kin_first_name" placeholder="First Name" class="form-control input-sm  text-center" id="inputKinfirstname" size="30" maxlength="20" value="<?php if (isset($trimmed['kin_first_name'])) echo $trimmed['kin_first_name']; ?>" />
+                                    <input type="text" name="kin_first_name" placeholder="First Name" class="form-control input-sm  text-center" id="inputKinfirstname" size="30" maxlength="30" value="<?php if (isset($trimmed['kin_first_name'])) echo $trimmed['kin_first_name']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Last Name</label>
@@ -316,11 +316,11 @@
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Relationship</label>
-                                    <input type="text" name="kin_relationship" placeholder="Relationship" class="form-control input-sm text-center" id="inputPassword3" size="30" maxlength="20" value="<?php if (isset($trimmed['kin_relationship'])) echo $trimmed['kin_relationship']; ?>" />
+                                    <input type="text" name="kin_relationship" placeholder="Relationship" class="form-control input-sm text-center" id="inputPassword3" size="30" maxlength="30" value="<?php if (isset($trimmed['kin_relationship'])) echo $trimmed['kin_relationship']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Primary Contact</label>
-                                    <input type="text" name="kin_primary_contact" placeholder="Primary Contact" class="form-control input-sm text-center" id="inputKinprimarycontact" size="30" maxlength="20" value="<?php if (isset($trimmed['kin_primary_contact'])) echo $trimmed['kin_primary_contact']; ?>" />
+                                    <input type="text" name="kin_primary_contact" placeholder="Primary Contact" class="form-control input-sm text-center" id="inputKinprimarycontact" size="30" maxlength="30" value="<?php if (isset($trimmed['kin_primary_contact'])) echo $trimmed['kin_primary_contact']; ?>" />
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label>Backup Contact</label>
@@ -344,15 +344,15 @@
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Town / City</label>
-                                        <input type="text" name="kin_town" placeholder="Town / City" class="form-control input-sm text-center" id="inputKintown" size="30" maxlength="20" value="<?php if (isset($trimmed['kin_town'])) echo $trimmed['kin_town']; ?>" />
+                                        <input type="text" name="kin_town_city" placeholder="Town / City" class="form-control input-sm text-center" id="inputKintowncity" size="30" maxlength="30" value="<?php if (isset($trimmed['kin_town_city'])) echo $trimmed['kin_town_city']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>County</label>
-                                        <input type="text" name="kin_county" placeholder="County" class="form-control input-sm text-center" id="inputKincounty" size="30" maxlength="20" value="<?php if (isset($trimmed['kin_county'])) echo $trimmed['kin_county']; ?>" />
+                                        <input type="text" name="kin_county" placeholder="County" class="form-control input-sm text-center" id="inputKincounty" size="30" maxlength="30" value="<?php if (isset($trimmed['kin_county'])) echo $trimmed['kin_county']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Post Code</label>
-                                        <input type="text" name="kin_post_code" placeholder="Post Code" class="form-control input-sm  text-center" id="inputKinpostcode" size="30" maxlength="10" value="<?php if (isset($trimmed['kin_post_code'])) echo $trimmed['kin_post_code']; ?>" />
+                                        <input type="text" name="kin_post_code" placeholder="Post Code" class="form-control input-sm  text-center" id="inputKinpostcode" size="30" maxlength="30" value="<?php if (isset($trimmed['kin_post_code'])) echo $trimmed['kin_post_code']; ?>" />
                                     </div><hr>                               
                                 </div>
                            
@@ -360,27 +360,27 @@
                                 <h3>Previous Experience</h3>
                                     <div class="form-group form-group-sm">
                                         <label>Existing Diver Grades</label>
-                                        <input type="text" name="exisiting_grades" placeholder="Existing Diver Grades" class="form-control input-sm  text-center" id="inputExisitinggrades" size="40" maxlength="20" value="<?php if (isset($trimmed['exisiting_grades'])) echo $trimmed['exisiting_grades']; ?>" />
+                                        <input type="text" name="diver_grade" placeholder="Existing Diver Grades" class="form-control input-sm  text-center" id="inputExisitinggrades" size="40" maxlength="40" value="<?php if (isset($trimmed['diver_grade'])) echo $trimmed['diver_grade']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Instructor Grades</label>
-                                        <input type="text" name="instructor_grades" placeholder="Instructor Grades" class="form-control input-sm text-center" id="inputInstructorgrades" size="40" maxlength="40" value="<?php if (isset($trimmed['instructor_grades'])) echo $trimmed['instructor_grades']; ?>" />
+                                        <input type="text" name="instructor_grade" placeholder="Instructor Grades" class="form-control input-sm text-center" id="inputInstructorgrades" size="40" maxlength="40" value="<?php if (isset($trimmed['instructor_grade'])) echo $trimmed['instructor_grade']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Max Depth</label>
-                                        <input type="text" name="max_depth" placeholder="Max Depth" class="form-control input-sm text-center" id="inputMaxdepth" size="30" maxlength="30" value="<?php if (isset($trimmed['max_depth'])) echo $trimmed['max_depth']; ?>" />
+                                        <input type="text" name="dive_max_depth" placeholder="Max Depth" class="form-control input-sm text-center" id="inputMaxdepth" size="30" maxlength="30" value="<?php if (isset($trimmed['dive_max_depth'])) echo $trimmed['dive_max_depth']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Nitrox</label>
-                                        <input type="text" name="nitrox" placeholder="Nitrox" class="form-control input-sm text-center" id="inputNitrox" size="30" maxlength="30" value="<?php if (isset($trimmed['nitrox'])) echo $trimmed['nitrox']; ?>" />
+                                        <input type="text" name="dive_nitrox" placeholder="Nitrox" class="form-control input-sm text-center" id="inputNitrox" size="30" maxlength="30" value="<?php if (isset($trimmed['dive_nitrox'])) echo $trimmed['dive_nitrox']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Drysuit</label>
-                                        <input type="text" name="drysuit" placeholder="Drysuit" class="form-control input-sm text-center" id="inputDrysuit" size="30" maxlength="30" value="<?php if (isset($trimmed['drysuit'])) echo $trimmed['drysuit']; ?>" />
+                                        <input type="text" name="dive_drysuit" placeholder="Drysuit" class="form-control input-sm text-center" id="inputDrysuit" size="30" maxlength="30" value="<?php if (isset($trimmed['dive_drysuit'])) echo $trimmed['dive_drysuit']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>First Aid</label>
-                                        <input type="text" name="first_aid" placeholder="First Aid" class="form-control input-sm  text-center" id="inputFirstaid" size="30" maxlength="30" value="<?php if (isset($trimmed['first_aid'])) echo $trimmed['first_aid']; ?>" />
+                                        <input type="text" name="dive_first_aid" placeholder="First Aid" class="form-control input-sm  text-center" id="inputFirstaid" size="30" maxlength="30" value="<?php if (isset($trimmed['dive_first_aid'])) echo $trimmed['dive_first_aid']; ?>" />
                                     </div><hr>
                             </div>
                             <h3>Other Information</h3>
@@ -388,11 +388,11 @@
                                 
                                     <div class="form-group form-group-sm">
                                         <label>Briefly explain your diving experience so far</label>
-                                        <textarea rows="3" cols="30" name="experience" placeholder="Briefly explain your diving experience so far" class="form-control input-sm  text-center" id="inputExperience"></textarea>
+                                        <textarea rows="3" cols="30" name="dive_experience" placeholder="Briefly explain your diving experience so far" class="form-control input-sm  text-center" id="inputExperience"></textarea>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Please state what you would like to achieve with SUCS</label>
-                                        <textarea rows="3" cols="30" name="achieve" placeholder="Please state what you would like to achieve with SUCS" class="form-control input-sm  text-center" id="inputAchieve"></textarea>
+                                        <textarea rows="3" cols="30" name="dive_achieve" placeholder="Please state what you would like to achieve with SUCS" class="form-control input-sm  text-center" id="inputAchieve"></textarea>
                                     </div><hr>
                             </div>
                             <div class="col-lg-6">
@@ -403,7 +403,7 @@
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Please state any circumstances that would affect your training / diving</label>
-                                        <textarea rows="3" cols="30" name="issues" placeholder="Please state any circumstances that would affect your training / diving" class="form-control input-sm  text-center" id="inputIssues"></textarea>
+                                        <textarea rows="3" cols="30" name="dive_issues" placeholder="Please state any circumstances that would affect your training / diving" class="form-control input-sm  text-center" id="inputIssues"></textarea>
                                     </div><hr>
                             </div>
                             <div class="col-lg-12">
@@ -411,7 +411,7 @@
                                 <br />
                                     <div class="form-group form-group-sm">
                                         <label>I authorise Solent SAC to hold the above data records for the duration of my membership.</label>
-                                        <input type="checkbox" value="" name="agreedata" class="form-control input-sm text-center" id="inputAgreedata" />
+                                        <input type="checkbox" value="" name="agree_data" class="form-control input-sm text-center" id="inputAgreedata" />
                                     </div>
                                 <br />
                                     <div class="form-group form-group-sm">
