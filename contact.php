@@ -142,26 +142,26 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="well">
-                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                                <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
                                     <div class="form-group">
                                         <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter your Username" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Username or Password</div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember" id="remember"> Remember login
                                             </label>
-                                            <p class="help-block">(if this is a private computer)</p>
+                                            <p class="help-block">(If using a private computer)</p>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="/forgot/" class="btn btn-primary btn-block">Forgotten Password</a>
+                                        <a href="forgot_password.html" class="btn btn-primary btn-block">Forgotten Password</a>
                                 </form>
                             </div>
                         </div>
@@ -169,14 +169,14 @@
                             <div class="well"> 
                                 <p class="lead">Register <span class="text-primary">Now!</span></p>
                                     <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Lots of diving</li>
-                                        <li><span class="fa fa-check text-success"></span> More diving</li>
-                                        <li><span class="fa fa-check text-success"></span> Hang out with Darren</li>
-                                        <li><span class="fa fa-check text-success"></span> ...and others</li>
-                                        <li><span class="fa fa-check text-success"></span> Something<small>(in small print)</small></li>
+                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
+                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
+                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
+                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
+                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
                                     </ul>
-                                <p><a href="/read-more/" class="btn btn-primary btn-block">Read more</a></p>
-                                <p><a href="register" class="btn btn-primary btn-block">Yes please, register now!</a></p>
+                                <p><a href="members.html" class="btn btn-primary btn-block">Read more</a></p>
+                                <p><a href="register.php" class="btn btn-primary btn-block">Yes please, register now!</a></p>
                             </div>
                         </div>
                     </div>
@@ -226,8 +226,7 @@
             <!-- Map Column -->
                 <div class="col-md-8">
                     <!-- Embedded Google Map -->
-                    <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBfKAsdqKN8xdakmwLRU2cz8CqjM2FDyyE
-    &q=Southampton+Solent+University"></iframe>
+                    <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2515.8502459370125!2d-1.4002000000000001!3d50.907987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487476b1943c33e9%3A0x7b3d2a7c433db059!2sSouthampton+Solent+University!5e0!3m2!1sen!2suk!4v1426207636397"></iframe>
                 </div>
                 <!-- Contact Details Column -->
                 <div class="col-md-4 scheme2">
@@ -356,7 +355,7 @@
                         <ul class="list-inline">
                             <li><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
                             <li class="divider"></li>
-                            <li><a href="index.html"><strong>&copy; Company 2014</strong></a></li>
+                            <li><a href="index.html"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="privacypolicy.html"><strong>Privacy Policy</strong></a></li>                
 
