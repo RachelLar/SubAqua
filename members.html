@@ -142,26 +142,26 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="well">
-                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                                <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
                                     <div class="form-group">
                                         <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter your Username" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Username or Password</div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember" id="remember"> Remember login
                                             </label>
-                                            <p class="help-block">(if this is a private computer)</p>
+                                            <p class="help-block">(If using a private computer)</p>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="/forgot/" class="btn btn-primary btn-block">Forgotten Password</a>
+                                        <a href="forgot_password.html" class="btn btn-primary btn-block">Forgotten Password</a>
                                 </form>
                             </div>
                         </div>
@@ -169,14 +169,14 @@
                             <div class="well"> 
                                 <p class="lead">Register <span class="text-primary">Now!</span></p>
                                     <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Lots of diving</li>
-                                        <li><span class="fa fa-check text-success"></span> More diving</li>
-                                        <li><span class="fa fa-check text-success"></span> Hang out with Darren</li>
-                                        <li><span class="fa fa-check text-success"></span> ...and others</li>
-                                        <li><span class="fa fa-check text-success"></span> Something<small>(in small print)</small></li>
+                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
+                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
+                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
+                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
+                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
                                     </ul>
-                                <p><a href="/read-more/" class="btn btn-primary btn-block">Read more</a></p>
-                                <p><a href="register" class="btn btn-primary btn-block">Yes please, register now!</a></p>
+                                <p><a href="members.html" class="btn btn-primary btn-block">Read more</a></p>
+                                <p><a href="register.php" class="btn btn-primary btn-block">Yes please, register now!</a></p>
                             </div>
                         </div>
                     </div>
@@ -467,134 +467,6 @@
     </div>
 <!-- End Intro Graphic -->
 
-<!-- Start Members Services
-    <div style="padding:20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="page-header scheme2">Services Panels</h2>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <span class="fa-stack fa-5x">
-                                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                  <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </div>
-                        <div class="panel-body">
-                            <h4>Service One</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <span class="fa-stack fa-5x">
-                                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                  <i class="fa fa-car fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </div>
-                        <div class="panel-body">
-                            <h4>Service Two</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <span class="fa-stack fa-5x">
-                                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                  <i class="fa fa-support fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </div>
-                        <div class="panel-body">
-                            <h4>Service Three</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <span class="fa-stack fa-5x">
-                                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                  <i class="fa fa-database fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </div>
-                        <div class="panel-body">
-                            <h4>Service Four</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- End Member Services -->
-
-<!-- Start Member Service Tabs
-    <div style="padding:20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="page-header scheme2">Service Tabs</h2>
-                </div>
-                <div class="col-lg-12">
-
-                    <ul id="myTab" class="nav nav-tabs nav-justified">
-                        <li class="active"><a href="#service-one" data-toggle="tab"><i class="fa fa-tree"></i> Service One</a>
-                        </li>
-                        <li class=""><a href="#service-two" data-toggle="tab"><i class="fa fa-car"></i> Service Two</a>
-                        </li>
-                        <li class=""><a href="#service-three" data-toggle="tab"><i class="fa fa-support"></i> Service Three</a>
-                        </li>
-                        <li class=""><a href="#service-four" data-toggle="tab"><i class="fa fa-database"></i> Service Four</a>
-                        </li>
-                    </ul>
-
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="service-one">
-                            <div class="scheme2">
-                                <h4>Service One</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>                        
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="service-two">
-                            <div class="scheme2">
-                                <h4>Service Two</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="service-three">
-                            <div class="scheme2">
-                                <h4>Service Three</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="service-four">
-                            <div class="scheme2">
-                                <h4>Service Four</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- End Member Service Tabs -->
-
 
 <!-- Start pricing table -->
     <div style="padding:20px;">
@@ -762,7 +634,7 @@
                         <ul class="list-inline">
                             <li><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
                             <li class="divider"></li>
-                            <li><a href="index.html"><strong>&copy; Company 2014</strong></a></li>
+                            <li><a href="index.html"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="privacypolicy.html"><strong>Privacy Policy</strong></a></li>                
 
