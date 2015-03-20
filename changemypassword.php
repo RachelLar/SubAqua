@@ -1,3 +1,14 @@
+<?php 
+    // Include the configuration file:
+    require ('includes/config.inc.php'); 
+    
+    // Start output buffering:
+    ob_start();
+
+    // Initialize a session:
+    session_start();
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -6,11 +17,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Contacting Team Solent Sub-Aqua Club</title>
+    <title>Change Your Password</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!--page style added here to override other settings-->
     <style>
         body {
             padding-top: 50px;
@@ -92,15 +105,15 @@
             </div>
           
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <!--<ul class="nav navbar-nav">
                     <li><a href="index.html"><strong>Home</strong></a></li>
                     <li><a href="about.html"><strong>About</strong></a></li>
-                    <li><a href="FAQs.html"><strong>FAQ's</strong></a></li>
+                    <li class="active"><a href="FAQs.html"><strong>FAQ's</strong></a></li>
                     <li><a href="gallery.html"><strong>Gallery</strong></a></li>                
                     <li><a href="members.html"><strong>Members</strong></a></li>
                     <li><a href="schedule.html"><strong>Schedule</strong></a></li>                
-                    <li class="active"><a href="contact.php"><strong>Contact</strong></a></li> 
-                </ul>
+                    <li><a href="contact.php"><strong>Contact</strong></a></li> 
+                </ul>-->
                 <ul class="nav navbar-right navbar-nav ">
                     <li class="dropdown">           
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
@@ -118,10 +131,10 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>
-                            <!--<li><a href="#"><i class="fa fa-user"></i> Register</a></li>-->
-                            <!--<li class="divider"></li>-->
-                            <!--<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>-->
+                               <!-- <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>-->
+                               <li><a href="change_mypassword.php" title="Change Your Password"><strong>Change Password</strong></a></li> 
+                               <li class="divider"></li>
+                                <li><a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                     </li>  
                 </ul>   
@@ -142,26 +155,26 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="well">
-                                <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
+                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
                                     <div class="form-group">
                                         <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter your Username" placeholder="example@gmail.com">
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Username or Password</div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember" id="remember"> Remember login
                                             </label>
-                                            <p class="help-block">(If using a private computer)</p>
+                                            <p class="help-block">(if this is a private computer)</p>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="forgot_password.html" class="btn btn-primary btn-block">Forgotten Password</a>
+                                        <a href="/forgot/" class="btn btn-primary btn-block">Forgotten Password</a>
                                 </form>
                             </div>
                         </div>
@@ -169,14 +182,14 @@
                             <div class="well"> 
                                 <p class="lead">Register <span class="text-primary">Now!</span></p>
                                     <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
-                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
-                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
-                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
-                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
+                                        <li><span class="fa fa-check text-success"></span> Lots of diving</li>
+                                        <li><span class="fa fa-check text-success"></span> More diving</li>
+                                        <li><span class="fa fa-check text-success"></span> Hang out with Darren</li>
+                                        <li><span class="fa fa-check text-success"></span> ...and others</li>
+                                        <li><span class="fa fa-check text-success"></span> Something<small>(in small print)</small></li>
                                     </ul>
-                                <p><a href="members.html" class="btn btn-primary btn-block">Read more</a></p>
-                                <p><a href="register.php" class="btn btn-primary btn-block">Yes please, register now!</a></p>
+                                <p><a href="/read-more/" class="btn btn-primary btn-block">Read more</a></p>
+                                <p><a href="register" class="btn btn-primary btn-block">Yes please, register now!</a></p>
                             </div>
                         </div>
                     </div>
@@ -185,129 +198,35 @@
         </div>
     </div>
 <!--End Login Modal -->
-
-<!-- Start Page Heading/Breadcrumbs -->
+<br />
+<!--Start Main Carousel -->
     <div style="padding:20px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 scheme2">
-                    <h1 class="page-header">Contacting Us</h1>                                          
-                    <ol class="breadcrumb  btn-primary">
-                        <li><a href="index.html">Home</a>
-                        </li>
-                        <li class="active" id="scheme2">Contact</li>
-                    </ol>
+                <div class="col-lg-12 scheme2"> 
+                    <div class="formbox formbox-area clearfix text-center">
+                        <h1>Change Password</h1>
+                        <p><small>Use only letters, numbers, and the underscore. <br>Must be between 4 and 20 characters long.</small></p>   
+                        <form class="form-group" role="form" action="change_password.php" method="post">
+                            <div class="form-group form-group-lg">
+                               <input type="password" name="password1" placeholder="New Password" class="form-control input-lg text-center" maxlength="20">
+                            </div>
+                            <div class="form-group form-group-lg">
+                               <input type="password" name="password2" placeholder="Confirm Password" class="form-control input-lg text-center" maxlength="20">
+                            </div>
+                            <div class="form-group form-group-lg" align="center">
+
+                               <button type="submit" name="submit" value="Change My Password" class="btn btn-primary btn-lg btn-block">Change My Password</button>
+                            <!--<button class="btn btn-primary btn-md btn-block"><a href="register.php" title="Register for the Site">Sign Up</a></button>-->
+                            </div>
+                        </form> 
+                        <p></p>
+                        <p></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- End Page Heading/Breadcrumbs -->
-
-<!-- Page Information -->
-    <div style="padding:20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 scheme2">
-                     <h2 class="page-header">Meet the Team</h2>   
-                        <p>Come along and say hello. We don’t do a hard sell, just lay the facts out, give you all the details and allow you to make up your own mind.</p>
-                        <p>Members meet in room HCO31 (main campus) every Tuesday from 6.30pm.</p>
-                        <p>Additional pool and classroom sessions take place on Thursday, Friday and Saturday.</p>
-                        <p>Open water trips take part on Wednesday, Saturday & Sunday.</p>
-                </div>
-            </div><hr>
-        </div>
-    </div>
-<!-- End Page Information -->
-
-<!-- Start Contact Section -->
-    <div style="padding:20px;">
-        <div class="container">
-            <div class="row">
-            <!-- Map Column -->
-                <div class="col-md-8">
-                    <!-- Embedded Google Map -->
-                    <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2515.8502459370125!2d-1.4002000000000001!3d50.907987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487476b1943c33e9%3A0x7b3d2a7c433db059!2sSouthampton+Solent+University!5e0!3m2!1sen!2suk!4v1426207636397"></iframe>
-                </div>
-                <!-- Contact Details Column -->
-                <div class="col-md-4 scheme2">
-                    <h3>Contact Details</h3>
-                    <p>
-                        E Park Terrace<br>Southampton<br>Hampshire<br>SO14 0YN<br>
-                    </p>
-                    <p><i class="fa fa-phone"></i> 
-                        <abbr title="Phone">P</abbr>: 07500 732087</p>
-                    <p><i class="fa fa-envelope-o"></i> 
-                        <abbr title="Email">E</abbr>: <a href="mailto:dive@bsac1624.co.uk">dive@bsac1624.co.uk</a>
-                    </p>
-                    <!--<p><i class="fa fa-clock-o"></i> 
-                        <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>-->
-                    <ul class="list-unstyled list-inline list-social-icons">
-                        <li>
-                            <a href="https://www.facebook.com/solent.subaqua"><i class="fa fa-facebook-square fa-2x"></i></a>
-                        </li>
-                        <!--<li>
-                            <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
-                        </li>-->
-                    </ul>
-                </div>
-            </div>
-            <!-- /.row -->
-
-            <!-- Contact Form -->
-            <div class="row">
-                <div class="col-md-8 scheme2">
-                    <h3>Send us a Message</h3>
-                        <?php
-                        $contact_form = 1; // set desired form number.
-                        $contact_form_path = 'contact-files/'; // set path to /contact-files/ with slash on end.
-                        require $contact_form_path . 'contact-form-run.php';
-                        ?>
-                                        
-                    
-                    <!--    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Full Name:</label>
-                                <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block"></p>
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Phone Number:</label>
-                                <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Email Address:</label>
-                                <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Message:</label>
-                                <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
-                            </div>
-                        </div>
-                        <div id="success"></div>-->
-                        <!-- For success/fail messages -->
-                        <!--<button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>-->
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- End Contact Section -->
-
-
 <!--End Main Page Content -->
         
 <hr> <!--A line -->
@@ -317,10 +236,10 @@
         <div class="well" >
             <div class="row">
                 <div class="col-md-8">
-                    <p style="font-size: 25px;"><strong>Would you like to join our club, but don't know how?</strong></p>
+                    <p style="font-size: 25px;"><strong>Don't forget to take a look at the Schedule for a list of events</strong></p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-primary btn-block" href="members.html">Find out more information NOW!</a>
+                    <a class="btn btn-lg btn-primary btn-block" href="schedule.html">Find out more information NOW!</a>
                 </div>
             </div>
         </div>
@@ -333,7 +252,7 @@
             <footer id="footer" class="text-center">      
                 <div class="row">                  
                     <div class="col-xs-8 col-sm-12">
-                        <ul class="list-inline">
+                        <!--<ul class="list-inline">
                             <li><a href="index.html"><strong>Home</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="about.html"><strong>About</strong></a></li>
@@ -349,9 +268,61 @@
                             <li><a href="contact.php"><strong>Contact</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="sitemap.html"><strong>Site Map</strong></a></li>                      
-                        </ul> 
+                        </ul> -->
+                        <?php 
+                            // Display links based upon the login status:
+                            if (isset($_SESSION['user_id'])) 
+                                {
+                                    echo '<ul class="list-inline">
+                                            <li><a href="logout.php" title="Logout"><strong>Logout</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="change_mypassword.php" title="Change Your Password"><strong>Change Password</strong></a></li>               
+
+                                        </ul>
+
+                                        <ul class="list-inline">
+                                            <li><a href="termsofuse.html" target="_blank"><strong>Terms of Use</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="index.html" target="_blank"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="privacypolicy.html" target="_blank"><strong>Privacy Policy</strong></a></li>                
+
+                                        </ul>';
+                                // Add links if the user is an administrator:
+                                if ($_SESSION['user_level'] == 1) 
+                                    {
+                                        echo '<ul class="list-inline">
+                                                <li><a href="admin_task.php" title="Admin Task"><strong>Admin Task</strong></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="admin_task.php" title="Admin Task 2"><strong>Admin Task 2</strong></a></li>                
+
+                                            </ul>';
+                                    }   
+
+                                } 
+                            else 
+                                { //  Not logged in.
+                                    echo '<ul class="list-inline">
+                                            <li><a href="register.php" title="Register for the Site"><strong>Register</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" data-toggle="modal" data-target="#basicModal"><strong>Login</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="forgot_password.php" title="Forgot Password"><strong>Forgot Password</strong></a></li>                
+
+                                        </ul>
+
+                                        <ul class="list-inline">
+                                            <li><a href="termsofuse.html" target="_blank"><strong>Terms of Use</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="index.html" target="_blank"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="privacypolicy.html" target="_blank"><strong>Privacy Policy</strong></a></li>                
+
+                                        </ul>';
+                                }
+                    ?>
                     </div>
-                    <div class="col-xs-8 col-sm-12">
+                    <!--<div class="col-xs-8 col-sm-12">
                         <ul class="list-inline">
                             <li><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
                             <li class="divider"></li>
@@ -360,7 +331,7 @@
                             <li><a href="privacypolicy.html"><strong>Privacy Policy</strong></a></li>                
 
                         </ul> 
-                    </div>                
+                    </div>  -->              
                                 
                 <!--<div class="col-xs-6 col-sm-4">
                     <address>
@@ -425,3 +396,6 @@
 <!-- End Page -->
     </body>
 </html>
+<?php // Flush the buffered output.
+    ob_end_flush();
+?>
