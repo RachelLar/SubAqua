@@ -6,15 +6,15 @@ and is used to carry-out the logout process for the site. */
 // This states a requirement to include the config file 
 // an optional alternative page header, then set the page title.
 require ('includes/config.inc.php'); 
-$page_title = 'Logout';
-include ('includes/header.html');
+//$page_title = 'Logout';
+//include ('includes/header.html');
 
 // IF no first_name session variable exists, this will redirect the user
 if (!isset($_SESSION['first_name'])) 
 	{
-		$url = BASE_URL . 'index.html'; // This will define the URL
+		//$url = BASE_URL . ''; // This will define the URL
 		ob_end_clean(); // This will delete the buffer
-		header("Location: $url");
+		header("Location: index.html");
 		exit(); // This will exit the script		
 	} 
 else 
