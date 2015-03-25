@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			}
 		
 		// This will validate the password before logging in
-		if (!empty($_POST['pass'])) 
+		if (!empty($_POST['password'])) 
 			{
-				$p = mysqli_real_escape_string ($dbc, $_POST['pass']);
+				$p = mysqli_real_escape_string ($dbc, $_POST['password']);
 			} 
 		else 
 			{
@@ -34,10 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 				echo '<p class="error">You forgot to enter your password!</p>';
 			}
 		
-		if ($e && $p) { // Then, IF everything is set correctly
+		if ($e && $p) 
+                    { // Then, IF everything is set correctly
 
 			// This will make a query to the database
-			$q = "SELECT user_id, first_name, user_level FROM users WHERE (email='$e' AND pass=SHA1('$p')) AND active IS NULL";		
+			$q = "SELECT user_id, first_name, user_level FROM users WHERE (email='$e' AND password=SHA1('$p')) AND active IS NULL";		
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 			
 			if (@mysqli_num_rows($r) == 1) 
@@ -49,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 					mysqli_close($dbc);
 									
 					// This will redirect the user
-					$url = BASE_URL . 'index.php'; // This will define the URL
+					//$url = BASE_URL;// . 'index.html'; // This will define the URL
 					ob_end_clean(); // This will delete the buffer
-					header("Location: $url");
+					header("Location: member_home.php");
 					exit(); // This will exit the script
 						
 				} 

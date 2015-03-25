@@ -12,9 +12,9 @@ require ('includes/config.inc.php');
 // IF no first_name session variable exists, redirect the user
 if (!isset($_SESSION['user_id'])) 
 	{		
-		$url = BASE_URL . 'index.php'; // This will define the URL
+		//$url = BASE_URL . 'member_home.php'; // This will define the URL
 		ob_end_clean(); // This will delete the buffer
-		header("Location: $url");
+		header("Location: index.html");
 		exit(); // This will exit the script		
 	}
 
@@ -44,14 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			{ // Then, IF everything is set correctly
 
 				// This will carry-out the query
-				$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id={$_SESSION['user_id']} LIMIT 1";	
+				$q = "UPDATE users SET password=SHA1('$p') WHERE user_id={$_SESSION['user_id']} LIMIT 1";	
 				$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 				if (mysqli_affected_rows($dbc) == 1) { //  Then, IF everything ran correctly
 
 					// This will confirm the change
-					echo '<h3>Your password has been changed.</h3>';
+					//echo '<h3>Your password has been changed.</h3>';
 					mysqli_close($dbc); // Close the database connection.
-					include ('includes/footer.html'); // Include the HTML footer.
+                                        header("Location: change_mypassword_updated.php");    					
+//include ('includes/footer.html'); // Include the HTML footer.
 					exit();
 					
 				} 

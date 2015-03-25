@@ -146,8 +146,8 @@
                             <div class="well">
                                 <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
                                     <div class="form-group">
-                                        <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter your Username" placeholder="example@gmail.com">
+                                        <label for="email" class="control-label">Email</label>
+                                        <input type="text" class="form-control" id="username" name="email" value="" required="" title="Please enter your Email Address" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
                                     </div>
                                     <div class="form-group">
@@ -155,7 +155,7 @@
                                         <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Username or Password</div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Email or Password</div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember" id="remember"> Remember login

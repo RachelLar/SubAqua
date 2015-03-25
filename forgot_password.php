@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 				$p = substr ( md5(uniqid(rand(), true)), 3, 10);
 
 				// This will update the database
-				$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id=$uid LIMIT 1";
+				$q = "UPDATE users SET password=SHA1('$p') WHERE user_id=$uid LIMIT 1";
 				$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
 				if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
@@ -56,14 +56,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 					mail ($_POST['email'], 'Your temporary password.', $body, 'From: admin@sucs.com');
 					
 					// This will print a message and wrap up
-					echo '<h3>Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link.</h3>';
+					//echo '<h3>Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link.</h3>';
 					mysqli_close($dbc);
 					//include ('includes/footer.html');
+                                        header("Location: forgot_password_updated.html");
 					exit(); // This will exit the script					
 			} 
 		else 
 			{ // ELSE, if everything it did not run correctly
-				echo '<p class="error">Your password could not be changed due to a system error. We apologize for any inconvenience.</p>'; 
+				echo '<p class="error">Your password could not be changed due to a system error. We apologise for any inconvenience.</p>'; 
 			}
 
 	} 

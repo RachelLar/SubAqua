@@ -1,3 +1,14 @@
+<?php 
+    // Include the configuration file:
+    require ('includes/config.inc.php'); 
+    
+    // Start output buffering:
+    ob_start();
+
+    // Initialize a session:
+    session_start();
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -6,11 +17,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Terms of Use For Team Solent Sub-Aqua Club Website</title>
+    <title>Change Your Password</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!--page style added here to override other settings-->
     <style>
         body {
             padding-top: 50px;
@@ -93,13 +106,15 @@
           
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html"><strong>Home</strong></a></li>
+                    <li class="active"><a href="member_home.php"><strong>Home</strong></a></li>
+                    <li><a href="member_page2.php"><strong>Content</strong></a></li>    
+                <!--<li><a href="index.html"><strong>Home</strong></a></li>
                     <li><a href="about.html"><strong>About</strong></a></li>
-                    <li><a href="FAQs.html"><strong>FAQ's</strong></a></li>
+                    <li class="active"><a href="FAQs.html"><strong>FAQ's</strong></a></li>
                     <li><a href="gallery.html"><strong>Gallery</strong></a></li>                
                     <li><a href="members.html"><strong>Members</strong></a></li>
                     <li><a href="schedule.html"><strong>Schedule</strong></a></li>                
-                    <li><a href="contact.php"><strong>Contact</strong></a></li> 
+                    <li><a href="contact.php"><strong>Contact</strong></a></li>--> 
                 </ul>
                 <ul class="nav navbar-right navbar-nav ">
                     <li class="dropdown">           
@@ -118,10 +133,10 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>
-                            <!--<li><a href="#"><i class="fa fa-user"></i> Register</a></li>-->
-                            <!--<li class="divider"></li>-->
-                            <!--<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>-->
+                               <!-- <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>-->
+                               <li><a href="change_mypassword.php" title="Change Your Password"><strong>Change Password</strong></a></li> 
+                               <li class="divider"></li>
+                                <li><a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
                             </ul>
                     </li>  
                 </ul>   
@@ -142,26 +157,26 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="well">
-                                <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
+                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
                                     <div class="form-group">
-                                        <label for="email" class="control-label">Email</label>
-                                        <input type="text" class="form-control" id="username" name="email" value="" required="" title="Please enter your Email Address" placeholder="example@gmail.com">
+                                        <label for="username" class="control-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Email or Password</div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" name="remember" id="remember"> Remember login
                                             </label>
-                                            <p class="help-block">(If using a private computer)</p>
+                                            <p class="help-block">(if this is a private computer)</p>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="forgot_password.html" class="btn btn-primary btn-block">Forgotten Password</a>
+                                        <a href="/forgot/" class="btn btn-primary btn-block">Forgotten Password</a>
                                 </form>
                             </div>
                         </div>
@@ -169,14 +184,14 @@
                             <div class="well"> 
                                 <p class="lead">Register <span class="text-primary">Now!</span></p>
                                     <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
-                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
-                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
-                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
-                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
+                                        <li><span class="fa fa-check text-success"></span> Lots of diving</li>
+                                        <li><span class="fa fa-check text-success"></span> More diving</li>
+                                        <li><span class="fa fa-check text-success"></span> Hang out with Darren</li>
+                                        <li><span class="fa fa-check text-success"></span> ...and others</li>
+                                        <li><span class="fa fa-check text-success"></span> Something<small>(in small print)</small></li>
                                     </ul>
-                                <p><a href="members.html" class="btn btn-primary btn-block">Read more</a></p>
-                                <p><a href="register.php" class="btn btn-primary btn-block">Yes please, register now!</a></p>
+                                <p><a href="/read-more/" class="btn btn-primary btn-block">Read more</a></p>
+                                <p><a href="register" class="btn btn-primary btn-block">Yes please, register now!</a></p>
                             </div>
                         </div>
                     </div>
@@ -185,49 +200,28 @@
         </div>
     </div>
 <!--End Login Modal -->
-
-<!-- Start Page Heading/Breadcrumbs -->
+<br />
+<!--Start Main Carousel -->
     <div style="padding:20px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 scheme2">
-                    <h1 class="page-header">Terms of Use</h1>                   
-                    <ol class="breadcrumb  btn-primary">
-                        <li><a href="index.html">Home</a></li>                    
-                        <li class="active" id="scheme2">Terms of Use</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-<!-- End Page Heading/Breadcrumbs -->
-
-<!-- Page Information -->
-    <div style="padding:20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="jumbotron">
-                        <h1>Terms of Use</h1>
-                        
-                        <p>The terms of use are......</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus vehicula est, eu maximus diam mollis eget. Nam eleifend neque et lobortis pulvinar. Nulla porta maximus nibh a pharetra. Maecenas at tristique tortor. Phasellus tempus orci justo, ut vehicula urna sodales et. Nulla facilisi. Proin accumsan ligula varius, malesuada urna et, dignissim nunc. Etiam et eros aliquam tellus pretium auctor non eget mi. Aliquam ut ultricies tellus, nec venenatis lorem. Duis ultricies risus felis, vel vestibulum lectus euismod at.
-
-                            Nulla facilisi. Morbi facilisis porttitor tellus, vel eleifend metus gravida vel. Mauris semper lorem sed mauris convallis, et placerat tortor tempor. Suspendisse potenti. Etiam sodales augue sit amet purus finibus cursus. Aenean sodales massa lacus, sed consectetur elit dignissim eu. In elit turpis, facilisis id dui vel, posuere efficitur lorem. Maecenas in velit efficitur, hendrerit lacus vitae, posuere urna.
-
-                            Mauris tincidunt quam ac urna bibendum, vel consequat nulla sollicitudin. Phasellus dignissim eget mauris non faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sit amet libero est. Nunc euismod volutpat arcu rutrum vestibulum. Morbi vitae ex ante. In in risus at est porta placerat eget sed quam. Sed mattis eleifend sem, sed maximus est tristique a. Vivamus quis sem eget leo tincidunt iaculis non nec libero. Suspendisse potenti. Maecenas eu gravida tellus. Suspendisse facilisis tellus vel lectus venenatis accumsan.
-
-                            Praesent a semper lorem, vitae egestas diam. Nunc est nunc, dignissim a maximus id, eleifend sit amet est. Duis ante elit, posuere id tincidunt id, semper non urna. Proin ac porttitor sem. Maecenas volutpat sed justo accumsan sodales. In imperdiet scelerisque urna a consectetur. Aenean convallis orci ut lectus semper placerat.
-
-                            Maecenas iaculis non nisi quis ultrices. Donec mattis varius risus, ut tincidunt turpis tempus a. Cras efficitur dapibus risus. Nulla ut ligula sed turpis ullamcorper finibus. Morbi ac interdum odio, nec ullamcorper purus. Curabitur ac nisl eu elit posuere maximus. Sed quis eros magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eros augue, pulvinar non sem et, convallis tincidunt orci. Praesent id erat ex. Ut dapibus finibus hendrerit. Aenean vel tempus ligula. Aenean vel pulvinar mauris, a pretium risus.</p>
+                <div class="col-lg-12 scheme2"> 
+                    <div class="formbox formbox-area clearfix text-center">
+                        <h1>Change Password</h1>
+                        <hr>
+                        <br><br>
+                        <h3>Your password has been changed</h3>
+                        <br><br>
+                        <div>
+                            
+                        </div> 
+                        <p></p>
+                        <p></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- End Page Information -->
-
-
 <!--End Main Page Content -->
         
 <hr> <!--A line -->
@@ -237,10 +231,10 @@
         <div class="well" >
             <div class="row">
                 <div class="col-md-8">
-                    <p style="font-size: 25px;"><strong>Would you like to join our club, but don't know how?</strong></p>
+                    <p style="font-size: 25px;"><strong>Don't forget to take a look at the Schedule for a list of events</strong></p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-primary btn-block" href="members.html">Find out more information NOW!</a>
+                    <a class="btn btn-lg btn-primary btn-block" href="schedule.html">Find out more information NOW!</a>
                 </div>
             </div>
         </div>
@@ -253,7 +247,7 @@
             <footer id="footer" class="text-center">      
                 <div class="row">                  
                     <div class="col-xs-8 col-sm-12">
-                        <ul class="list-inline">
+                        <!--<ul class="list-inline">
                             <li><a href="index.html"><strong>Home</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="about.html"><strong>About</strong></a></li>
@@ -269,18 +263,70 @@
                             <li><a href="contact.php"><strong>Contact</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="sitemap.html"><strong>Site Map</strong></a></li>                      
-                        </ul> 
+                        </ul> -->
+                        <?php 
+                            // Display links based upon the login status:
+                            if (isset($_SESSION['user_id'])) 
+                                {
+                                    echo '<ul class="list-inline">
+                                            <li><a href="logout.php" title="Logout"><strong>Logout</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="change_mypassword.php" title="Change Your Password"><strong>Change Password</strong></a></li>               
+
+                                        </ul>
+
+                                        <ul class="list-inline">
+                                            <li><a href="termsofuse.html" target="_blank"><strong>Terms of Use</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="index.html" target="_blank"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="privacypolicy.html" target="_blank"><strong>Privacy Policy</strong></a></li>                
+
+                                        </ul>';
+                                // Add links if the user is an administrator:
+                                if ($_SESSION['user_level'] == 1) 
+                                    {
+                                        echo '<ul class="list-inline">
+                                                <li><a href="admin_task.php" title="Admin Task"><strong>Admin Task</strong></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="admin_task.php" title="Admin Task 2"><strong>Admin Task 2</strong></a></li>                
+
+                                            </ul>';
+                                    }   
+
+                                } 
+                            else 
+                                { //  Not logged in.
+                                    echo '<ul class="list-inline">
+                                            <li><a href="register.php" title="Register for the Site"><strong>Register</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#" data-toggle="modal" data-target="#basicModal"><strong>Login</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="forgot_password.php" title="Forgot Password"><strong>Forgot Password</strong></a></li>                
+
+                                        </ul>
+
+                                        <ul class="list-inline">
+                                            <li><a href="termsofuse.html" target="_blank"><strong>Terms of Use</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="index.html" target="_blank"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="privacypolicy.html" target="_blank"><strong>Privacy Policy</strong></a></li>                
+
+                                        </ul>';
+                                }
+                    ?>
                     </div>
-                    <div class="col-xs-8 col-sm-12">
+                    <!--<div class="col-xs-8 col-sm-12">
                         <ul class="list-inline">
-                            <li class="active"><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
+                            <li><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="index.html"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
                             <li class="divider"></li>
                             <li><a href="privacypolicy.html"><strong>Privacy Policy</strong></a></li>                
 
                         </ul> 
-                    </div>                
+                    </div>  -->              
                                 
                 <!--<div class="col-xs-6 col-sm-4">
                     <address>
@@ -345,3 +391,6 @@
 <!-- End Page -->
     </body>
 </html>
+<?php // Flush the buffered output.
+    ob_end_flush();
+?>
