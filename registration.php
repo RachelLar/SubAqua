@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your first name!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your first name!</p></div>';
             }
 
 	// This will check for a last name
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-		echo '<p class="error">Please enter your last name!</p>';
+		echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your last name!</p></div>';
             }
 	
 	// This will check for an email address
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-		echo '<p class="error">Please enter a valid email address!</p>';
+		echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter a valid email address!</p></div>';
             }
 
             
@@ -59,12 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                     } 
                 else
                     {
-			echo '<p class="error">Your password did not match the confirmed password!</p>';
+			echo '<div class="alert alert-danger" role="alert"><p class="error">Your password did not match the confirmed password!</p></div>';
                     }
             } 
         else 
             {
-		echo '<p class="error">Please enter a valid password!</p>';
+		echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter a valid password!</p></div>';
             }
             
   //------------------------------------------
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your address number!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your address number!</p></div>';
             }
             
         // This will check for an address1 
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your address line 1!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your address line 1!</p></div>';
             }
 
             
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your address line 2!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your address line 2!</p></div>';
             }
  
             
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your town or city!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your town or city!</p></div>';
             }
  
             
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your county!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your county!</p></div>';
             }
  
             
@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your postcode!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your postcode!</p></div>';
             }
             
             
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your mobile number!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your mobile number!</p></div>';
             }
             
             
@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
         //    } 
        // else 
         //    {
-        //        echo '<p class="error">Please enter if you are a Uni student or not!</p>';
+        //        echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter if you are a Uni student or not!</p></div>';
         //    }
             
             
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your Uni name!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your Uni name!</p></div>';
             }    
                        
             
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your Uni course name!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your Uni course name!</p></div>';
             }
             
                        
@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your Uni campus name!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your Uni campus name!</p></div>';
             }
             
             
@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your Uni duration!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your Uni duration!</p></div>';
             }
                       
             
@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your Uni year!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your Uni year!</p></div>';
             }
                         
             
@@ -217,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your date of birth!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your date of birth!</p></div>';
             }
                        
             
@@ -228,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your age at join!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your age at join!</p></div>';
             }
             
            
@@ -241,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin first name!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin first name!</p></div>';
             }
                        
             
@@ -252,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin last name!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin last name!</p></div>';
             }
             
             
@@ -263,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-		echo '<p class="error">Please enter a valid next of kin email address!</p>';
+		echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter a valid next of kin email address!</p></div>';
             }
     
             
@@ -274,7 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin relationship!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin relationship!</p></div>';
             }
                                     
             
@@ -285,7 +285,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin primary contact!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin primary contact!</p></div>';
             }
                         
             
@@ -296,7 +296,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin backup contact!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin backup contact!</p></div>';
             }
                         
             
@@ -307,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin address number!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin address number!</p></div>';
             }
             
             
@@ -318,7 +318,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin address line 1!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin address line 1!</p></div>';
             }
             
             
@@ -329,7 +329,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin address line 2!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin address line 2!</p></div>';
             }
                         
             
@@ -340,7 +340,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin town or city!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin town or city!</p></div>';
             }
             
                         
@@ -351,7 +351,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin county!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin county!</p></div>';
             }
                         
             
@@ -362,7 +362,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your next of kin postcode!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your next of kin postcode!</p></div>';
             }
             
 //---------------------------------------------------------------            
@@ -374,7 +374,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your diver grade!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your diver grade!</p></div>';
             }
                                     
             
@@ -385,7 +385,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your instructor grade!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your instructor grade!</p></div>';
             }
                         
             
@@ -396,7 +396,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your max dive depth!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your max dive depth!</p></div>';
             }    
                        
             
@@ -407,7 +407,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your nitrox info!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your nitrox info!</p></div>';
             }    
             
             
@@ -418,7 +418,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your drysuit details!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your drysuit details!</p></div>';
             }    
 
             
@@ -429,7 +429,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your first aid details!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your first aid details!</p></div>';
             }    
 
          // This will check for dive experience
@@ -439,7 +439,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your dive experience!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your dive experience!</p></div>';
             }    
  
  
@@ -450,7 +450,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your dive achievements!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your dive achievements!</p></div>';
             }    
              
  
@@ -461,7 +461,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter any issues!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter any issues!</p></div>';
             }    
                        
 //---------------------------------------------------
@@ -473,7 +473,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your allergy details!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your allergy details!</p></div>';
             }    
 
             
@@ -484,7 +484,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter any other allergy details!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter any other allergy details!</p></div>';
             } */   
             
  //-------------------------------------------------
@@ -497,7 +497,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your agreement for holding data!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your agreement for holding data!</p></div>';
             }
             
             
@@ -508,7 +508,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your agreement to the terms!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your agreement to the terms!</p></div>';
             }
            */
         // This will check for an agreement for holding data 
@@ -518,7 +518,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your agreement for holding data!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your agreement for holding data!</p></div>';
             }
     */        
             
@@ -529,7 +529,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
             } 
         else 
             {
-                echo '<p class="error">Please enter your agreement to the terms!</p>';
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter your agreement to the terms!</p></div>';
             }            
  */           
             
@@ -639,26 +639,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
                                 mail($trimmed['email'], 'Registration Confirmation', $body, 'From: admin@sucs.com');
 
                                 // This will finish the page
-                                echo '<h3>Thank you for registering!</h3><p>A confirmation email has been sent to your address.</p><p> Please click on the link in that email in order to activate your account.</p>';
+                                echo '<h3>Thank you for registering!</h3><p>A confirmation email has been sent to your address.</p><p> Please click on the link in that email in order to activate your account.</p></div>';
                                 //include ('includes/footer.html'); // Include the HTML footer.
                                 exit(); // Stop the page.
 
                             } 
                         else 
                             { // ELSE, if it did not run correctly
-				echo '<p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
+				echo '<div class="alert alert-danger" role="alert"><p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p></div>';
                             }
 			
                     } 
                     else 
                         { //  ELSE, it will advise the email address is not available
-                            echo '<p class="error">That email address has already been registered. If you have forgotten your password, use the link at right to have your password sent to you.</p>';
+                            echo '<div class="alert alert-danger" role="alert"><p class="error">That email address has already been registered. If you have forgotten your password, use the link at right to have your password sent to you.</p></div>';
                         }
 		
 	} 
         else 
             { // ELSE, if one of the data tests failed it will advise to try again
-		echo '<p class="error">Please try again.</p>';
+		echo '<div class="alert alert-danger" role="alert"><p class="error">Please try again.</p>';
             }
 
 	mysqli_close($dbc);

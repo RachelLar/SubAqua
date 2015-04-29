@@ -2,12 +2,20 @@
     // Include the configuration file:
     require ('includes/config.inc.php'); 
     
+    
     // Start output buffering:
     ob_start();
 
     // Initialize a session:
     session_start();
-?>
+
+   /*if ($_SESSION['user_level'] == 0) // If the user is not Admin, redirect to the Login page
+    {
+	ob_end_clean(); // This will delete the buffer
+	header("Location: index.html");
+	exit(); // This will exit the script
+    }*/
+    ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,7 +24,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Another Members Page For Team Solent Sub-Aqua Club</title>
+    <title>Admin - View Members Page</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -101,11 +109,23 @@
                 </div>  
             </div>
           
-            <div id="navbar" class="navbar-collapse collapse">
+           
+            
+            <div id="navbar" class="navbar-collapse collapse"> 
                 <ul class="nav navbar-nav">
-                    <li><a href="member_home.php"><strong>Home</strong></a></li>
-                    <li class="active"><a href="member_page2.php"><strong>Content</strong></a></li>   
-                </ul>
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Tasks<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="admin_home.php"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="admin_view_members.php"><i class="fa fa-briefcase"></i> View Members</a></li>
+                    <li><a href="admin_add_members_info.php"><i class="fa fa-briefcase"></i> Add Members Admin Info</a></li>
+                    <li><a href="admin_upload_members_photo.php"><i class="fa fa-briefcase"></i> Upload Members Photo</a></li>
+                    <li><a href="admin_add_members_payment.php"><i class="fa fa-briefcase"></i> Add Members Payment Info</a></li>
+                    <!--<li class="divider"></li>-->
+                    
+                  </ul>
+                </li>
+            </ul>
                 <ul class="nav navbar-right navbar-nav ">
                     <li class="dropdown">           
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
@@ -135,18 +155,74 @@
     </div>
 <!--End Navigation -->
 
+<!--Start Login Modal 
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="well">
+                                <form id="loginForm" method="POST" action="login.php" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter your Username" placeholder="example@gmail.com">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your Password">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">You have entered an incorrect Username or Password</div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="remember" id="remember"> Remember login
+                                            </label>
+                                            <p class="help-block">(If using a private computer)</p>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                        <a href="forgot_password.html" class="btn btn-primary btn-block">Forgotten Password</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="well"> 
+                                <p class="lead">Register <span class="text-primary">Now!</span></p>
+                                    <ul class="list-unstyled" style="line-height: 2">
+                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
+                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
+                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
+                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
+                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
+                                    </ul>
+                                <p><a href="members.html" class="btn btn-primary btn-block">Read more</a></p>
+                                <p><a href="register.php" class="btn btn-primary btn-block">Yes please, register now!</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+End Login Modal -->
+
 <!-- Start Page Heading/Breadcrumbs -->
     <div style="padding:20px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 scheme2">
-                    <h1 class="page-header">Members Content
+                    <h1 class="page-header">Admin Member View
                         
                     </h1>
                     <ol class="breadcrumb  btn-primary" >
-                        <li><a href="index.html">Members</a>
+                        <li><a href="admin_home.php">Admin</a>
                         </li>
-                        <li class="active" id="scheme2">Content</li>
+                        <li class="active" id="scheme2">View Members</li>
                     </ol>
                 </div>
             </div>
@@ -172,153 +248,101 @@
     */
 ?>     
        
+<?php /*
+	// Display links based upon the login status:
+	if (isset($_SESSION['first_name'])) 
+            {
+                // Add links if the user is Admin
+		if ($_SESSION['user_level'] == 1) 
+                    {*/
+                        //This selects the relevant data from the database for non-admin online members
+                        require ('mysqli_connect.php');
+                                $query = "SELECT user_id, first_name, last_name, email, user_level, mobile, member_info_id  FROM users INNER JOIN member_info
+                                            ON users.user_id = member_info.users_user_id AND user_level = 0";
+
+                        // execute the query
+                        $results = mysqli_query($dbc, $query) or die(mysqli_error());       
+                        $numrow = mysqli_num_rows($results);
+                   // }	
+            //} 
+        //else 
+    ?>
+
 <!--Start Main Page Content -->
 
-<!-- Start Members info (accordion) Content -->
-    <div style="padding:20px;">
+<div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Latest Training Video</a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div class="col-md-6">
-                                    <p>We have a lot of students from Southampton University doing Marine Biology and Archaeology type degrees are naturally very enthusiastic about diving. This allows us to promote more dive trips for all members, so it’s a win-win and why you are more than welcome. </p>
-                                    <p>Other interested students are are also doing degrees in Film/TV and Sports Management/Coaching. Diver grades along with possible Instructor grades are helpful by showing a level of both management and discipline that translate very well to other sports or industries.</p>
-                                    <p>Many course and expedition dives require a 2nd level grade minimum of Sport Diver and we can achieve this within 6 months or the Uni year, or can be achieved faster on our Fastrack courses.</p>
-                                    </div>
+                <div class="col-lg-12 formbox_register">
+                    <h2 class="page-header scheme2">Members</h2>
+                    <p class="scheme2">Below is a list of all <?php echo $numrow;?> Online Members.</p>
+                     <div class="table-responsive">
+                         <table class="table scheme2">
+                         <thead>
+                             <tr class="btn-primary">
+                              <th>User ID</th>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Email</th>
+                              <th>Mobile</th>
+                              <th>Member Info ID</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php
+                            //This will count each row of data, put the values into an array called $row
+                            $count = 0;
+                            while ($count < $numrow)
+                                {	
+                                    // Pull one record of data out of the $results array
+                                    $row = $results->fetch_assoc();
+                                    extract($row);
 
-            <!-- Start Video Section -->            
-                                    <div class="col-md-6">
-                                        <div class="responsive-video embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zoNCLP7hsgA" allowfullscreen=""></iframe>
-                                        </div>                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Dive Exam Tips</a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Dive Training</li>
-                                        <li><span class="fa fa-check text-success"></span> Open-water diving</li>
-                                        <li><span class="fa fa-check text-success"></span> With like-minded people</li>
-                                        <li><span class="fa fa-check text-success"></span> In a great atmosphere</li>
-                                        <li><span class="fa fa-check text-success"></span> And International trips<small>(...and more)</small></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Aenean consequat lorem ut felis ullamcorper?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFive" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Aenean consequat lorem ut felis ullamcorper?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseSix" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseSeven" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseEight" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel -->
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Aenean consequat lorem ut felis ullamcorper?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseNine" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                </div>
-                            </div>
-                        </div>
+                                    //This creates the table to pull through the relevant variables and data
+                                    echo "<tr>";		
+
+                                    echo "<td>";
+                                    echo $user_id;
+                                    echo "</td>";
+
+                                    echo "<td>";
+                                    echo $first_name;
+                                    echo "</td>";
+
+                                    echo "<td>";
+                                    echo $last_name;
+                                    echo "</td>";
+
+                                    echo "<td>";
+                                    echo $email;
+                                    echo "</td>";
+                                    
+                                    echo "<td>";
+                                    echo $mobile;
+                                    echo "</td>";
+                                   
+                                    echo "<td>";
+                                    echo $member_info_id;
+                                    echo "</td>";
+                                    
+                                    //echo "<td>";
+                                   // echo "<a href='admin_unit.php'>".$course_title."</a>";
+                                    //echo "</td>";
+
+                                    echo "</tr>";
+
+                                    $count = $count +1;
+                                }
+                            ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- End Members Info (accordion) Content -->
+
+
 
 <!--End Main Page Content -->
         
