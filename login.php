@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		else 
 			{
 				$e = FALSE;
-				echo '<p class="error">You forgot to enter your email address!</p>';
+				echo '<div class="alert alert-danger" role="alert"><p class="error">You forgot to enter your email address!</p></div>';
 			}
 		
 		// This will validate the password before logging in
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		else 
 			{
 				$p = FALSE;
-				echo '<p class="error">You forgot to enter your password!</p>';
+				echo '<div class="alert alert-danger" role="alert"><p class="error">You forgot to enter your password!</p></div>';
 			}
 		
 		if ($e && $p) 
@@ -49,22 +49,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 					mysqli_free_result($r);
 					mysqli_close($dbc);
 									
-					// This will redirect the user
-					//$url = BASE_URL;// . 'index.html'; // This will define the URL
-					ob_end_clean(); // This will delete the buffer
-					header("Location: member_home.php");
-					exit(); // This will exit the script
-						
-				} 
-			else 
-				{ // ELSE, if no match was made
-					echo '<p class="error">Either the email address and password entered do not match those on file or you have not yet activated your account.</p>';
-				}			
-		} 
-	else 
-		{ // ELSE, if everything else was not ok
-			echo '<p class="error">Please try again.</p>';
-		}
+		                        if ($_SESSION['user_level'] == 1)
+                                            {
+                                                // This will redirect the Admin User to their Home page
+                                                ob_end_clean(); // This will delete the buffer
+                                                header("Location: admin_home.php");
+                                                exit(); // This will exit the script
+                                            }
+                                        else 
+                                            {
+                                                // If they are not an Admin User, 
+                                                // this will redirect to the level 0 Student User Home page
+                                                ob_end_clean(); // This will delete the buffer
+                                                header("Location: member_home.php");
+                                                exit(); // This will exit the script
+                                            }
+
+                                } 
+                else  // ELSE, if no match was made
+                    {	
+                        echo '<div class="alert alert-danger" role="alert"><p class="error">Either the ID Number and Password entered do not match those on file or you have not yet activated your account.</p></div>';
+                    }		
+            } 
+        else  // ELSE, if everything it did not run correctly
+            {	
+                echo '<div class="alert alert-danger" role="alert"><p class="error">Please try again.</p></div>';
+            }
 		
 		mysqli_close($dbc);
 
