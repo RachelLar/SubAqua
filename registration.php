@@ -6,7 +6,7 @@ This page will display the html registration page and process the php request.*/
 // This states a requirement to include the config file.
 require ('includes/config.inc.php');
 $page_title = 'Registration';
-//include ('includes/header.html');
+include ('includes/header.html');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
     {
@@ -634,13 +634,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
 			if (mysqli_affected_rows($dbc) == 1)  // If it ran OK.
                             {
                                 // This will send the registration email
-                                $body = "Thank you for registering at <whatever site>. To activate your account, please click on this link:\n\n";
+                                $body = "An online application has arrived. To activate the account, please click on this link:\n\n";
                                 $body .= ('BASE_URL') . 'activate.php?x=' . urlencode($e) . "&y=$a";
-                                mail($trimmed['email'], 'Registration Confirmation', $body, 'From: admin@sucs.com');
+                                mail(/*$trimmed['email']*/'To: admin@sucs.com', 'Registration Confirmation', $body, 'From: admin@sucs.com');
 
                                 // This will finish the page
-                                echo '<h3>Thank you for registering!</h3><p>A confirmation email has been sent to your address.</p><p> Please click on the link in that email in order to activate your account.</p></div>';
-                                //include ('includes/footer.html'); // Include the HTML footer.
+                                echo '<h3 class="scheme2 text-center">Thank you for registering!</h3><p class="scheme2 text-center">Your account has been registered. Once your application is complete, your account will be activated.</p></div><br /><br />';
+                                include ('includes/footer.html'); // Include the HTML footer.
                                 exit(); // Stop the page.
 
                             } 
@@ -666,4 +666,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // Handle the form.
     } // End
 ?>
 
-
+<?php include ('includes/admin_footer.html'); ?>
