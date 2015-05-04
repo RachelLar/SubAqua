@@ -123,7 +123,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                               <!-- <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>-->
                                <li><a href="change_mypassword.php" title="Change Your Password"><strong>Change Password</strong></a></li> 
                                <li class="divider"></li>
                                 <li><a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
@@ -140,11 +139,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 scheme2">
-                    <h1 class="page-header">Members Content
-                        
-                    </h1>
+                    <h1 class="page-header">Members Content</h1>
                     <ol class="breadcrumb  btn-primary" >
-                        <li><a href="index.html">Members</a>
+                        <li><a href="member_home.php">Members</a>
                         </li>
                         <li class="active" id="scheme2">Content</li>
                     </ol>
@@ -156,7 +153,7 @@
 
 <?php
     // Welcome the user by name if they are logged in
-   /* echo '<h1>Welcome';
+    echo '<h1 class="scheme2 text-center">Your Available Content';
     if (!isset($_SESSION['first_name'])) 
         {//If the Session isn't set and therefore not logged in
             ob_end_clean(); // This will delete the buffer
@@ -165,11 +162,10 @@
         }
     else 
         {
-            echo ", {$_SESSION['first_name']}";
+            echo " {$_SESSION['first_name']}";
         }
     echo '!</h1>';
     
-    */
 ?>     
        
 <!--Start Main Page Content -->
@@ -329,10 +325,10 @@
         <div class="well" >
             <div class="row">
                 <div class="col-md-8">
-                    <p style="font-size: 25px;"><strong>Don't forget to book your diving trips</strong></p>
+                    <p style="font-size: 25px;"><strong>Open the main website in a new window</strong></p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-primary btn-block" href="members.html" target="_blank">Find out more information NOW!</a>
+                    <a class="btn btn-lg btn-primary btn-block" href="index.html" target="_blank">Click Here!</a>
                 </div>
             </div>
         </div>
@@ -410,8 +406,6 @@
     </div>
 <!-- End Footer Content Section -->
          
-      
-
 <!-- Start Additional Scripting (for faster loading) -->  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.js"><\/script>')</script>
@@ -450,8 +444,6 @@
 
             });
     </script>
-
-
 <!-- End Additional Scripting -->
 
 <!-- End Page -->

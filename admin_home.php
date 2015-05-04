@@ -1,27 +1,18 @@
-<?php 
-    // Include the configuration file:
-    require ('includes/config.inc.php'); 
-       
+<?php      
     // Start output buffering:
     ob_start();
 
     // Initialize a session:
     session_start();
-
-   if ($_SESSION['user_level'] == 0) // If the user is not Admin, redirect to the Login page
-    {
-	ob_end_clean(); // This will delete the buffer
-	header("Location: index.html");
-	exit(); // This will exit the script
-    }
     
-    if (!isset($_SESSION['first_name'])) 
-        {//If the Session isn't set and therefore not logged in
+        if ($_SESSION['user_level'] == 0) // If the user is not Admin, redirect to the Login page
+        {
             ob_end_clean(); // This will delete the buffer
-            header("Location: index.html");// This returns the user to the Login page
+            header("Location: index.html");
             exit(); // This will exit the script
         }
     ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -30,7 +21,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Admin - Add Members Admin Info</title>
+    <title>Admin Home Page For Team Solent Sub-Aqua Club</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -114,7 +105,7 @@
                     <img src="img/TeamLogo.png" alt="Team Solent Sub-Aqua Club"/>
                 </div>  
             </div>
-                                
+                     
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                 <li class="dropdown active">
@@ -146,7 +137,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                               <!-- <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>-->
                                <li><a href="change_mypassword.php" title="Change Your Password"><strong>Change Password</strong></a></li> 
                                <li class="divider"></li>
                                 <li><a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
@@ -163,49 +153,135 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 scheme2">
-                    <h1 class="page-header">Admin Add Member Payment Info</h1>
+                    <h1 class="page-header">Admin Home
+                        
+                    </h1>
                     <ol class="breadcrumb  btn-primary" >
-                        <li><a href="admin_home.php">Admin</a></li>
-                        <li class="active" id="scheme2">Add Member Payment Info</li>
+                        <li><a href="index.html">Admin</a>
+                        </li>
+                        <li class="active" id="scheme2">Home</li>
                     </ol>
                 </div>
             </div>
         </div>
     </div>
-<!-- End Page Heading/Breadcrumbs -->      
+<!-- End Page Heading/Breadcrumbs -->
+
+<?php
+   
+// Welcome the user by name if they are logged in
+    echo '<h1 class="scheme2 text-center">Welcome';
+    if (!isset($_SESSION['first_name'])) 
+        {//If the Session isn't set and therefore not logged in
+            ob_end_clean(); // This will delete the buffer
+            header("Location: index.html");// This returns the user to the Login page
+            exit(); // This will exit the script
+        }
+    else 
+        {
+            echo ", {$_SESSION['first_name']}";
+        }
+    echo '!</h1>';
+?>     
+       
 
 <!--Start Main Page Content -->
 
-<div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 scheme2"> 
-                    <div class="formbox formbox-area clearfix text-center">
-                    <!--This will display the html registration form-->
-                        <h1 class="textwhite">Add Member Payment Info</h1> 
-                        
-                        <form class="form-group" role="form" action="add_payment.php" method="post">
-                            <div class="form-group form-group-sm">
-                                <input type="text" name="member_info_member_info_id" placeholder="Exact Member Info ID Number" class="form-control input-md  text-center" size="30" maxlength="30" value="<?php if (isset($trimmed['member_info_member_info_id'])) echo $trimmed['member_info_member_info_id']; ?>" />
-                            </div>
-                            <div class="form-group form-group-sm">
-                                <input type="text" name="payment_description" placeholder="Payment Description" class="form-control input-md text-center" size="30" maxlength="30" value="<?php if (isset($trimmed['payment_description'])) echo $trimmed['payment_description']; ?>" />
-                            </div>
-                            <div class="form-group form-group-sm">
-                                <input type="text" name="payment_type" placeholder="Payment Type" class="form-control input-md text-center" size="30" maxlength="30" value="<?php if (isset($trimmed['payment_type'])) echo $trimmed['payment_type']; ?>" />
-                            </div>
-                            <div class="form-group form-group-sm">
-                                <input type="text" name="payment_amount" placeholder="Payment Amount" class="form-control input-md  text-center" size="30" maxlength="30" value="<?php if (isset($trimmed['payment_amount'])) echo $trimmed['payment_amount']; ?>" />
-                            </div>
-                            <div class="form-group form-group-lg" align="center">
-                               <button type="submit" name="submit" value="Submit" class="btn btn-primary btn-lg btn-block">Submit</button>
-                            </div>
-                        </form>             
-                    </div>
-                </div>
-            </div>
+<!--Start Left Panel-->
+<div style="padding:20px;">
+    <div class="container">
+        <div class="col-sm-3">
+    	<div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">The left side could be used for info and links...</div>
         </div>
+        <hr>
+        <div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Or it could be used for Admin links and only be enabled when logged in as Admin</div>
+        </div>
+        <hr>
+        <div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+  </div><!--End Left Panel-->
+  
+  <!--Start Center Panel-->
+      
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-xs-12 scheme2">
+        <h2>Another Option</h2>
+        <p>This is mocked-up as a blog style layout, so could be used for blogs or updates, or whatever is required etc...</p>
+        <p class="lead"><button class="btn btn-primary">Read More</button></p>
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 2 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 14 Shares</a></li></ul>
+      </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12 scheme2">
+        <h2>Article Heading</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+          Aliquam in felis sit amet augue.</p>
+        <p class="lead"><button class="btn btn-primary">Read More</button></p>
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">4 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 7 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 56 Shares</a></li></ul>
+      </div>
+    </div>
+    <hr>      
+    <div class="row">
+      <div class="col-xs-12 scheme2">
+        <h2>Article Heading</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+          Aliquam in felis sit amet augue.</p>
+        <p class="lead"><button class="btn btn-primary">Read More</button></p>
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">1 Week Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+      </div>
+    </div>
+    <hr>
+  </div><!--End Center Panel-->
+
+  <!--Start Right Panel-->
+      
+  <div class="col-sm-3">
+    	<div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">The right side could be used for info and links...</div>
+        </div>
+        <hr>
+        <div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">and more links</div>
+        </div>
+        <hr>
+        <div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">...and maybe a facebook feed?</div>
+        </div>
+        <hr>
+        <div class="panel panel-primary">
+         	<div class="panel-heading">Title</div>
+                <div class="panel-body">Content here..Or take out the side bars?<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue.</p></div>
+        </div>
+        <hr>
+  </div></div></div><!--End Right Panel-->
+
+
 <!--End Main Page Content -->
         
 <hr> <!--A line -->
@@ -294,8 +370,8 @@
             </footer>
         </div>
     </div>
-<!-- End Footer Content Section -->
-         
+<!-- End Footer Content Section -->     
+
 <!-- Start Additional Scripting (for faster loading) -->  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.js"><\/script>')</script>

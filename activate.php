@@ -9,7 +9,7 @@ and is used to carry-out the activate the user account process
 // an optional alternative page header, then set the page title.
 require ('includes/config.inc.php'); 
 $page_title = 'Activate Your Account';
-//include ('includes/header.html');
+include ('includes/header.html');
 
 // If $x and $y do not exist or aren't of the proper format, redirect the user
 if (isset($_GET['x'], $_GET['y']) 
@@ -25,11 +25,11 @@ if (isset($_GET['x'], $_GET['y'])
 		// This will print a customized message
 		if (mysqli_affected_rows($dbc) == 1) 
 			{
-				echo "<h3>Your account is now active. You may now log in.</h3>";
+				echo "<div class='alert alert-success' role='alert'>Your account is now active. You may now log in.</div>";
 			} 
 		else 
 			{
-				echo '<p class="error">Your account could not be activated. Please re-check the link or contact the system administrator.</p>'; 
+				echo '<div class="alert alert-danger" role="alert"><p class="error">Your account could not be activated. Please re-check the link or contact the system administrator.</p></div>'; 
 			}
 
 		mysqli_close($dbc);
@@ -37,11 +37,11 @@ if (isset($_GET['x'], $_GET['y'])
 	} 
 	else 
 		{ // Redirect
-			$url = BASE_URL . 'index.php'; // This will define the URL
+			//$url = BASE_URL . 'index.php'; // This will define the URL
 			ob_end_clean(); // This will delete the buffer
-			header("Location: $url");
+			header("Location: index.html");
 			exit(); // This will exit the script
 		} // End of main IF-ELSE.
 
-//include ('includes/footer.html');
+include ('includes/footer.html');
 ?>

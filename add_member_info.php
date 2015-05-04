@@ -1,9 +1,7 @@
 <?php
-
-
 // This states a requirement to include the config file
 require ('includes/config.inc.php'); 
-
+include ('includes/admin_header.html');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
     { 
@@ -12,10 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
 
         // This will Trim away the white-space of all the incoming data
         $trimmed = array_map('trim', $_POST);
-
         
-
-        // This will check for a Topic ID number
+        // This will check for a Member Info ID number
         if (preg_match ('/^[1-9][0-9]*$/', $trimmed['member_info_member_info_id']))
             {
                 $minfid = mysqli_real_escape_string ($dbc, $trimmed['member_info_member_info_id']);
@@ -44,8 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
             {
                 echo '<div class="alert alert-danger" role="alert"><p class="error">Please enter the Solent information or state none!</p></div>';
             }
-            
-            
+                        
         // This will check for Andark information
 	if (preg_match ('/^[a-zA-Z0-9-. ]+$/', $trimmed['andark'])) 
             {
@@ -75,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
 
                 if (mysqli_num_rows($r) == 0)  // IF available
                     {                      
-                    // This will add the payment information to the database
-                    $q = "INSERT INTO member_admin (bsac, solent, andark, polo, member_info_member_info_id) VALUES ( '$bsac', '$sol', '$adrk', '$polo', $minfid')";
+                    // This will add the member information to the database
+                    $q = "INSERT INTO member_admin (bsac, solent, andark, polo, member_info_member_info_id) VALUES ( '$bsac', '$sol', '$adrk', '$polo', '$minfid')";
                     $r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
                     if (mysqli_affected_rows($dbc) == 1)
@@ -84,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
 
                             // This will finish the page
                             echo '<div class="alert alert-success" role="alert"><p>Your information was added to the database.</p></div>';
-                            exit(); // This will stop the page.
+                            //exit(); // This will stop the page.
                         } 
                     else  // ELSE, if it did not run correctly
                         {
@@ -106,3 +101,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
     } // This will end of the main Submit conditional.
 ?>
 
+<?php include ('includes/admin_footer.html'); ?>

@@ -1,9 +1,7 @@
 <?php
-
-
 // This states a requirement to include the config file
 require ('includes/config.inc.php'); 
-
+include ('includes/admin_header.html');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
     { 
@@ -11,11 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
         require (MYSQL);
 
         // This will Trim away the white-space of all the incoming data
-        $trimmed = array_map('trim', $_POST);
+        $trimmed = array_map('trim', $_POST);       
 
-        
-
-        // This will check for a Topic ID number
+        // This will check for a Member Info ID number
         if (preg_match ('/^[1-9][0-9]*$/', $trimmed['member_info_member_info_id']))
             {
                 $minfid = mysqli_real_escape_string ($dbc, $trimmed['member_info_member_info_id']);
@@ -68,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
 
                         // This will finish the page
                         echo '<div class="alert alert-success" role="alert"><p>Your payment information was added to the database.</p></div>';
-                        exit(); // This will stop the page.
+                        //exit(); // This will stop the page.
                     } 
                 else  // ELSE, if it did not run correctly
                     {
@@ -85,3 +81,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
     } // This will end of the main Submit conditional.
 ?>
 
+<?php include ('includes/admin_footer.html'); ?>
