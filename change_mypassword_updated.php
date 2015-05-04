@@ -17,7 +17,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Change Your Password</title>
+    <title>Password Updated</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -107,14 +107,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="member_home.php"><strong>Home</strong></a></li>
-                    <li><a href="member_page2.php"><strong>Content</strong></a></li>    
-                <!--<li><a href="index.html"><strong>Home</strong></a></li>
-                    <li><a href="about.html"><strong>About</strong></a></li>
-                    <li class="active"><a href="FAQs.html"><strong>FAQ's</strong></a></li>
-                    <li><a href="gallery.html"><strong>Gallery</strong></a></li>                
-                    <li><a href="members.html"><strong>Members</strong></a></li>
-                    <li><a href="schedule.html"><strong>Schedule</strong></a></li>                
-                    <li><a href="contact.php"><strong>Contact</strong></a></li>--> 
+                    <li><a href="member_page2.php"><strong>Content</strong></a></li> 
                 </ul>
                 <ul class="nav navbar-right navbar-nav ">
                     <li class="dropdown">           
@@ -145,63 +138,9 @@
     </div>
 <!--End Navigation -->
 
-<!--Start Login Modal --> 
-    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Login</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="well">
-                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
-                                    <div class="form-group">
-                                        <label for="username" class="control-label">Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
-                                        <span class="help-block"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="control-label">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
-                                        <span class="help-block"></span>
-                                    </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember" id="remember"> Remember login
-                                            </label>
-                                            <p class="help-block">(if this is a private computer)</p>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                        <a href="/forgot/" class="btn btn-primary btn-block">Forgotten Password</a>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="well"> 
-                                <p class="lead">Register <span class="text-primary">Now!</span></p>
-                                    <ul class="list-unstyled" style="line-height: 2">
-                                        <li><span class="fa fa-check text-success"></span> Lots of diving</li>
-                                        <li><span class="fa fa-check text-success"></span> More diving</li>
-                                        <li><span class="fa fa-check text-success"></span> Hang out with Darren</li>
-                                        <li><span class="fa fa-check text-success"></span> ...and others</li>
-                                        <li><span class="fa fa-check text-success"></span> Something<small>(in small print)</small></li>
-                                    </ul>
-                                <p><a href="/read-more/" class="btn btn-primary btn-block">Read more</a></p>
-                                <p><a href="register" class="btn btn-primary btn-block">Yes please, register now!</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<!--End Login Modal -->
+
 <br />
-<!--Start Main Carousel -->
+<!--Start Main Content -->
     <div style="padding:20px;">
         <div class="container">
             <div class="row">
@@ -247,24 +186,8 @@
             <footer id="footer" class="text-center">      
                 <div class="row">                  
                     <div class="col-xs-8 col-sm-12">
-                        <!--<ul class="list-inline">
-                            <li><a href="index.html"><strong>Home</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="about.html"><strong>About</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="FAQs.html"><strong>FAQ's</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="gallery.html"><strong>Gallery</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="members.html"><strong>Members</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="schedule.html"><strong>Schedule</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="contact.php"><strong>Contact</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="sitemap.html"><strong>Site Map</strong></a></li>                      
-                        </ul> -->
-                        <?php 
+                       
+                       	<?php 
                             // Display links based upon the login status:
                             if (isset($_SESSION['user_id'])) 
                                 {
@@ -287,10 +210,15 @@
                                 if ($_SESSION['user_level'] == 1) 
                                     {
                                         echo '<ul class="list-inline">
-                                                <li><a href="admin_task.php" title="Admin Task"><strong>Admin Task</strong></a></li>
+                                                <li><a href="admin_home.php">Home</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="admin_task.php" title="Admin Task 2"><strong>Admin Task 2</strong></a></li>                
-
+                                                <li><a href="admin_view_members.php">View Members</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="admin_add_members_info.php">Add Members Admin Info</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="admin_upload_members_photo.php">Upload Member Photo</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="admin_add_members_payment.php">Add Members Payment Info</a></li>
                                             </ul>';
                                     }   
 
@@ -316,35 +244,12 @@
                                         </ul>';
                                 }
                     ?>
-                    </div>
-                    <!--<div class="col-xs-8 col-sm-12">
-                        <ul class="list-inline">
-                            <li><a href="termsofuse.html"><strong>Terms of Use</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="index.html"><strong>&copy; Team Solent Sub-Aqua Club 2015</strong></a></li>
-                            <li class="divider"></li>
-                            <li><a href="privacypolicy.html"><strong>Privacy Policy</strong></a></li>                
-
-                        </ul> 
-                    </div>  -->              
-                                
-                <!--<div class="col-xs-6 col-sm-4">
-                    <address>
-                        <strong>Team Solent.....</strong><br>
-                        007 street<br>
-                        Southampton, Hants SOxx Xxx<br>
-                        <abbr title="Phone">P:</abbr> (02380) 456789<br>
-                        <abbr title="Email">E:</abbr><a href="mailto:#">mailto@somedomain.com</a>
-                    </address>
-                </div> -->    
-                
+                    </div>               
                 </div> 
             </footer>
         </div>
     </div>
-<!-- End Footer Content Section -->
-         
-      
+<!-- End Footer Content Section -->    
 
 <!-- Start Additional Scripting (for faster loading) -->  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
