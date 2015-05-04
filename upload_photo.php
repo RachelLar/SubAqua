@@ -6,7 +6,7 @@ and is used to carry-out the login process for the site. */
 
 // This states a requirement to include the config file
 require ('includes/config.inc.php'); 
-
+include ('includes/admin_header.html');
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	if (isset($_FILES['upload'])) 
             {		
 		// Validate the type. This example allows for
-                //JPEG, PNG, GIF, Plain and RTF Text formats, PDF and most Microsoft type applications
+                //JPEG, PNG or GIF
 		$allowed = array ('image/pjpeg', 'image/jpeg', 'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png', 'image/x-png', 'image/gif'); 
 		if (in_array($_FILES['upload']['type'], $allowed)) 
                     {		
 			// Move the file over.
 			if (move_uploaded_file ($_FILES['upload']['tmp_name'], "member_photos/{$_FILES['upload']['name']}")) 
                             {
-                                echo '<div class="alert alert-danger" role="alert"><p>The file has been uploaded!</p></div>';
+                                echo '<div class="alert alert-success" role="alert"><p>The file has been uploaded!</p></div>';
                                 $thefile = $_FILES['upload']['name'];  
                                 $photolink = $thefile;
                             } // End of move... IF.		
@@ -84,11 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
         require (MYSQL);
 
         // This will Trim away the white-space of all the incoming data
-        $trimmed = array_map('trim', $_POST);
+        $trimmed = array_map('trim', $_POST);        
 
-        
-
-        // This will check for a Topic ID number
+        // This will check for a Member Info ID number
         if (preg_match ('/^[1-9][0-9]*$/', $trimmed['member_info_member_info_id']))
             {
                 $minfid = mysqli_real_escape_string ($dbc, $trimmed['member_info_member_info_id']);
@@ -102,7 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
         if ($minfid)  
             {                      
                 // This will add the picture to the database
-                $q = "INSERT INTO member_admin (picture) VALUES ('$photolink' ) WHERE `member_info_member_info_id` = '".$minfid."'";
+                //$q = "INSERT INTO member_admin (picture) VALUES ('$photolink')  member_info_member_info_id = '$minfid'";
+                $q = "UPDATE member_admin SET picture = '$photolink' WHERE member_info_member_info_id = '$minfid'";
                 $r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
                 if (mysqli_affected_rows($dbc) == 1)
@@ -110,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
 
                         // This will finish the page
                         echo '<div class="alert alert-success" role="alert"><p>Your picture was added to the database.</p></div>';
-                        exit(); // This will stop the page.
+                        //exit(); // This will stop the page.
                     } 
                 else  // ELSE, if it did not run correctly
                     {
@@ -127,3 +126,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') // This handles the form
     } // This will end of the main Submit conditional.
 ?>
 
+<?php include ('includes/admin_footer.html'); ?>
