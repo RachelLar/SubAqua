@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Welcome To Team Solent Sub-Aqua Club</title>
+    <title>Register For Team Solent Sub-Aqua Club</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -121,9 +121,6 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" data-toggle="modal" data-target="#basicModal"><i class="fa fa-cog"></i> Login</a></li>
-                            <!--<li><a href="#"><i class="fa fa-user"></i> Register</a></li>-->
-                            <!--<li class="divider"></li>-->
-                            <!--<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>-->
                             </ul>
                     </li>  
                 </ul>   
@@ -335,7 +332,7 @@
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Address 1</label>
-                                        <input type="text" name="kin_address1" placeholder="Last Name" class="form-control input-sm text-center" id="inputKinaddress1" size="30" maxlength="40" value="<?php if (isset($trimmed['kin_address1'])) echo $trimmed['kin_address1']; ?>" />
+                                        <input type="text" name="kin_address1" placeholder="Address 1" class="form-control input-sm text-center" id="inputKinaddress1" size="30" maxlength="40" value="<?php if (isset($trimmed['kin_address1'])) echo $trimmed['kin_address1']; ?>" />
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label>Address 2</label>
@@ -422,9 +419,7 @@
                                     <div class="form-group form-group-lg" align="center">                 
                                        <button type="submit" name="submit" value="Register" class="btn btn-primary btn-lg btn-block">Register</button>
                                     </div><hr>                                
-                            </div>
-                            
-                            
+                            </div>                                                        
                         </form> 
                         <p></p>
                         <p></p>
@@ -502,8 +497,7 @@
         </div>
     </div>
 <!-- End Footer Content Section -->
-         
-      
+             
 
 <!-- Start Additional Scripting (for faster loading) -->  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
