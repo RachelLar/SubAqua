@@ -1,3 +1,12 @@
+<?php 
+     
+    // Start output buffering:
+    ob_start();
+
+    // Initialize a session:
+    session_start();
+;
+    ?>
 <?php
 
 /*This  login.php script is based on Chapter 18 of
@@ -6,7 +15,7 @@ and is used to carry-out the login process for the site. */
 
 // This states a requirement to include the config file
 require ('includes/config.inc.php'); 
-
+include ('includes/header.html');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 	{
@@ -59,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                         else 
                                             {
                                                 // If they are not an Admin User, 
-                                                // this will redirect to the level 0 Student User Home page
+                                                // this will redirect to the level 0 Member User Home page
                                                 ob_end_clean(); // This will delete the buffer
                                                 header("Location: member_home.php");
                                                 exit(); // This will exit the script
@@ -68,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                 } 
                 else  // ELSE, if no match was made
                     {	
-                        echo '<div class="alert alert-danger" role="alert"><p class="error">Either the ID Number and Password entered do not match those on file or you have not yet activated your account.</p></div>';
+                        echo '<div class="alert alert-danger" role="alert">Either the ID Number and Password entered do not match those on file or you have not yet activated your account.</div>';
                     }		
             } 
         else  // ELSE, if everything it did not run correctly
@@ -80,4 +89,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 	} // This will end of the main Login conditional.
 ?>
-
+<?php include ('includes/footer.html'); ?>
