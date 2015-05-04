@@ -8,7 +8,7 @@ and is used to carry-out the forgot/change password process
 // an optional alternative page header, then set the page title.
 require ('includes/config.inc.php'); 
 //$page_title = 'Forgot Your Password';
-//include ('includes/header.html');
+include ('includes/header.html');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 	{
@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 					} 
 				else 
 					{ // ELSE, if no database match made
-						echo '<p class="error">The submitted email address does not match those on file!</p>';
+						echo '<div class="alert alert-danger" role="alert"><p class="error">The submitted email address does not match those on file!</p></div>';
 					}			
 			} 
 		else 
 			{ // //ELSE, if no email address has been entered
-				echo '<p class="error">You forgot to enter your email address!</p>';
+				echo '<div class="alert alert-danger" role="alert"><p class="error">You forgot to enter your email address!</p></div>';
 			} // End of empty($_POST['email']) IF.
 		
 		if ($uid) 
@@ -56,21 +56,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 					mail ($_POST['email'], 'Your temporary password.', $body, 'From: admin@sucs.com');
 					
 					// This will print a message and wrap up
-					//echo '<h3>Your password has been changed. You will receive the new, temporary password at the email address with which you registered. Once you have logged in with this password, you may change it by clicking on the "Change Password" link.</h3>';
-					mysqli_close($dbc);
+					echo '<div style="padding:20px;">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 scheme2"> 
+                                                            <div class="formbox formbox-area clearfix text-center">
+                                                                <h1>Reset Password</h1>
+                                                                <hr>   
+                                                                <div>
+                                                                    <h3>Your password has been changed</h3> 
+                                                                    <p>You will receive the new, temporary password at the email address with which you registered.</p> 
+                                                                    <p>Once you have logged in with this password, you may change it by clicking on the "Change Password" link.</p>
+
+                                                                </div> 
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>';
+					//mysqli_close($dbc);
 					//include ('includes/footer.html');
-                                        header("Location: forgot_password_updated.html");
-					exit(); // This will exit the script					
+                                        //header("Location: forgot_password_updated.html");
+					//exit(); // This will exit the script					
 			} 
 		else 
 			{ // ELSE, if everything it did not run correctly
-				echo '<p class="error">Your password could not be changed due to a system error. We apologise for any inconvenience.</p>'; 
+				echo '<div class="alert alert-danger" role="alert"><p class="error">Your password could not be changed due to a system error. We apologise for any inconvenience.</p></div>'; 
 			}
 
 	} 
 	else 
 		{ // ELSE, if the validation test failed
-			echo '<p class="error">Please try again.</p>';
+			echo '<div class="alert alert-danger" role="alert"><p class="error">Please try again.</p></div>';
 		}
 
 	mysqli_close($dbc); // This will close the database connection
@@ -78,4 +96,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	} // End of the main Submit conditional.
 ?>
 
-<?php //include ('includes/footer.html'); ?>
+<?php include ('includes/footer.html'); ?>
